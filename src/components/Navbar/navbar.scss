@@ -1,0 +1,166 @@
+@import "../../styles/commonStyle.scss";
+@import "../../styles/styleData.scss";
+.pro-navbar {
+  width: 100%;
+  height: 8rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include CommonPadding;
+  @media (max-width: $phone) {
+    height: 5rem;
+  }
+  z-index: 99;
+  .pro-back {
+    width: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    .back-icon {
+      margin-right: 0.2rem;
+      transition: 100ms transform;
+      @include navigationIcon;
+      color: $black;
+    }
+    h3 {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $black;
+      @include navigationText;
+    }
+  }
+  .pro-back.slide {
+    .back-icon,
+    h3 {
+      color: $black;
+    }
+  }
+  .pro-hanburger {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    height: 30%;
+    width: 12%;
+    cursor: pointer;
+    span {
+      background-color: $black;
+      mix-blend-mode: difference;
+      height: 2px;
+      &:first-child {
+        width: 3rem;
+        margin-bottom: 5px;
+        @media (max-width: $smallTablet) {
+          width: 2rem;
+        }
+      }
+      &:last-child {
+        width: 1.5rem;
+        @media (max-width: $smallTablet) {
+          width: 1.1rem;
+        }
+      }
+    }
+  }
+  .navbar-slider {
+    position: absolute;
+    left: 0;
+    transform: translateX(100%);
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #ffff;
+    // overflow: hidden ;
+    .nav-routes {
+      width: 50%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      @include CommonPadding;
+      ul {
+        list-style: none;
+        
+        li {
+          h3 {
+            transition: 150ms transform;
+            display: flex;
+            font-weight: 300;
+            div:first-child {
+              font-size: 2rem;
+              margin-right: 0.8rem;
+              @include navbarText;
+            }
+            div:last-child {
+              @include navbarTextTwo;
+            }
+            &:hover {
+              transform: translateX(5px);
+            }
+          }
+        }
+      }
+    }
+    .nav-upper {
+      width: 100%;
+      height: 8rem;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      @include CommonPadding;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      .pro-close {
+        width: 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        cursor: pointer;
+        z-index: 99;
+        .close-icon {
+          margin-right: 0.2rem;
+          transition: 100ms transform;
+          @include navigationIcon;
+        }
+        h3 {
+          text-decoration: none;
+          @include navigationText;
+        }
+      }
+    }
+    .pro-video-reveal {
+      width: 60vw;
+      height: 100%;
+      background-color: #fff;
+      position: absolute;
+      top: 0;
+      left: 45%;
+      pointer-events: none;
+      z-index: 9;
+    }
+    .pro-video {
+      width: 50vw;
+      height: 100%;
+      background-color: #000;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+.nav-active h3{
+  color: red;
+}

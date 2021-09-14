@@ -1,0 +1,13 @@
+.home-wrapper{
+  width: 100%;
+  height: 200vh;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box-container{
+  width: 400px;
+  height: 500px;
+  background-color: yellow;
+}
