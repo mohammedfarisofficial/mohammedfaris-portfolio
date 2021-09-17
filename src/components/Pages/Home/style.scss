@@ -2,7 +2,7 @@
 @import "../../../styles/styleData.scss";
 .home-wrapper {
   width: 100%;
-  height: 300vh;
+  height: 400vh;
   background-color: #fff;
   .home-hero {
     width: 100%;
@@ -144,9 +144,43 @@
       }
     }
     .item3 {
-      p{
-        color : $black;
+      p {
+        color: $black;
         @include paragraph;
+      }
+    }
+  }
+  .home-featured {
+    width: 100%;
+    height: 200vh;
+    @include CommonPadding;
+    .featured-title {
+      width: 100%;
+      // background-color: red;
+      height: 40vh;
+      padding-top: 8rem;
+      h2 {
+        font-weight: 500;
+        font-size: 24px;
+        @media (max-width: $tablet) {
+          font-size: 19px;
+        }
+        @media (max-width: $bigPhone) {
+          font-size: 13px;
+        }
+      }
+      p{
+        width: 20%;
+        @include description;
+        @media (max-width: $tablet) {
+          width: 30%;
+        }
+        @media (max-width: $bigPhone) {
+          width: 40%;
+        }
+        @media (max-width: $phone) {
+          width: 50%;
+        }
       }
     }
   }

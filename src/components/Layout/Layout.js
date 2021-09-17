@@ -67,7 +67,7 @@ const Layout = ({ children }) => {
   };
     return (
       <div className="layout-wrapper">
-        <CustomCursor />
+        {/* <CustomCursor /> */}
         <div className="layout-inner" ref={scrollContainer}>
           <Navbar />
           {children}
