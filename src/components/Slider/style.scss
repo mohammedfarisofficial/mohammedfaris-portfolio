@@ -1,3 +1,4 @@
+@import '../../styles/styleData.scss';
 .slider-wrapper{
      width: 100%;
      height: 100vh;
@@ -10,10 +11,22 @@
           background-color:green;
           overflow-x: scroll;
           width: 900px;
+          @media (max-width: $smallTablet){
+               width: 400px;
+          }
+          button{
+               background-color: rgba(255, 255, 255, 0.911);
+               color: black;
+          }
+          button:disabled{
+               opacity: .9;
+               color: black;
+               background-color: white;
+          }
           .slider-inner{
                display: flex;
                transform: translateX(0);
-               transition: transform 0.5s ease;
+               transition: transform 2s ease;
                background-color: yellow;
                width: calc(900*6px);
                height: 90%;
@@ -24,6 +37,9 @@
                     margin: 1px;
                     // object-fit: cover;
                     background-color: red;
+                    @media (max-width: $smallTablet){
+                         width: 400px;
+                    }
                }
           }
      }

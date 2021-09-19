@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./style.scss";
 import image from "../../../assets/home-images/1.jpg";
 import image2 from "../../../assets/home-images/2.jpg";
@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import "intersection-observer";
 import ViewportObserver from "viewport-observer";
 
+
 const Home = () => {
   //reveal state
   const [reveal, setReveal] = useState({
@@ -17,9 +18,6 @@ const Home = () => {
     featuredTitle: false,
   });
 
-  // useEffect(() => {
-  //   console.log(reveal);
-  // }, [reveal])
   // framer motion
   const HeroText = {
     show: (delay) => ({

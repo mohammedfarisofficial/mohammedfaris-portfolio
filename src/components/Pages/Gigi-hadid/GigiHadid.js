@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./style.scss";
@@ -13,10 +13,10 @@ import ViewSite from "../../Viewsite/ViewSite";
 
 const GigiHadid = () => {
   //look at reveal 
-  const [textReveal, setTextReveal] = useState({
-    about : false,
-    GotoSite : false
-  });
+  // const [textReveal, setTextReveal] = useState({
+  //   about : false,
+  //   GotoSite : false
+  // });
   // useEffect(() => {
     
   // }, [textReveal])

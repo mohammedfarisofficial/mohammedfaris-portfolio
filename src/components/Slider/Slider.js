@@ -1,20 +1,24 @@
 import { useState , useEffect } from "react";
 import "./style.scss";
-import image from "../../assets/home-images/1.jpg";
+// import image from "../../assets/home-images/1.jpg";
 import { useRef } from "react";
 // import useTransform  from "../../hooks/useTransform";
-const Slider = () => {
-  const [ isAnimating, setAnimate ] = useState(false)
+//hook
+import useWindowSize from "../../hooks/useWindowSize";
 
-  useEffect(() => {
-    console.log(isAnimating);
-  }, [isAnimating])
+const Slider = () => {
+  const [ isAnimate,setAnimate ] = useState(false)
+  const [ click,setClick ] = useState(1)
+  const [ boxSize,setBoxSize ] = useState(900)
 
   const sliderRef = useRef(null);
   const boxRef = useRef(null);
 
+  const size = useWindowSize()
+
   function getTranslateValues(element) {
     const style = window.getComputedStyle(element);
+
     const matrix =
       style["transform"] || style.webkitTransform || style.mozTransform;
 
@@ -26,7 +30,6 @@ const Slider = () => {
         z: 0,
       };
     }
-
     // Can either be 2d or 3d transform
     const matrixType = matrix.includes("3d") ? "3d" : "2d";
     const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(", ");
@@ -52,62 +55,49 @@ const Slider = () => {
       };
     }
   }
-  let click = 0;
-  let maxTransfrom = 7165.44;
 
-
-  const nextSlideHandler = () => {
+  useEffect(() => {
+    const boxWidth = boxRef.current.clientWidth
+    setBoxSize(boxWidth)
+    console.log(boxSize);
+  }, [])
+  const nextSlideHandler = (e) => {
+    setAnimate(true)
+    setTimeout(()=>{
+      setAnimate(false)
+    },2000)
     const { x } = getTranslateValues(sliderRef.current);
-    if(parseInt(x) !== -(900*5)){
-      click++;
-      const transfromForw = click * 900;
-      sliderRef.current.style.transform = `translateX(${-transfromForw}px)`;
+    if(parseInt(x) !== -(boxSize*5)){
+      if(!isAnimate){
+        setClick(click+1)
+        const transfromForw = click * boxSize;
+        console.log(boxSize);
+        sliderRef.current.style.transform = `translateX(${-transfromForw}px)`;
+      }
     }
   };
 
   const prevSlideHandler = () => {
+    setAnimate(true)
+    setTimeout(()=>{
+      setAnimate(false)
+    },2000)
     const { x } = getTranslateValues(sliderRef.current);
     if (parseInt(x) !== 0) {
-      click--;
-      let transformBack = parseInt(x) + 900;
-      sliderRef.current.style.transform = `translateX(${transformBack}px)`;
+      if(!isAnimate){
+        setClick(click-1)
+        let transformBack = parseInt(x) + boxSize;
+        sliderRef.current.style.transform = `translateX(${transformBack}px)`;
+      }   
     }
   };
   return (
     <div className="slider-wrapper">
-      <div className="slider-container">
-        <button onClick={prevSlideHandler}>prev slide</button>
-        <button onClick={nextSlideHandler}>next slide</button>
+      <div className="slider-container" ref={boxRef}>
+        <button disabled={ isAnimate ? true : false} onClick={prevSlideHandler}>prev slide</button>
+        <button disabled={ isAnimate ? true : false} onClick={nextSlideHandler}>next slide</button>
         <div className="slider-inner" ref={sliderRef}>
-          {/* <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img>
-                    <img src={image} className="box"></img> */}
-          <div ref={boxRef} className="box">
+          <div className="box">
             box1
           </div>
           <div className="box">box2</div>
