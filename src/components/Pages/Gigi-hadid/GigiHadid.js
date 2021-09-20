@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import "./style.scss";
+import { Link } from "react-router-dom";
+import { m, motion } from "framer-motion";
+
 import image1 from "../../../assets/gig-hadid-images/image1.jpg";
 import image2 from "../../../assets/gig-hadid-images/image2.jpg";
+
+//image for website compoent
+import image3 from '../../../assets/gigi-website/1.png'
+import image4 from '../../../assets/gigi-website/2.png'
+
+//icons for component
+import figmaIcon from '../../../assets/icons/figma.svg'
 
 //intersection observer
 import "intersection-observer";
@@ -12,14 +20,8 @@ import HeroUi from "../../LandingUi/HeroUi";
 import ViewSite from "../../Viewsite/ViewSite";
 
 const GigiHadid = () => {
-  //look at reveal 
-  // const [textReveal, setTextReveal] = useState({
-  //   about : false,
-  //   GotoSite : false
-  // });
-  // useEffect(() => {
-    
-  // }, [textReveal])
+  //reveal animation
+  const [ lookAt,setLookAt ] = useState(false)
   // theme 
   const [ lightMode, setLightMode ] = useState(false)
   //framer motion 
@@ -59,6 +61,7 @@ const GigiHadid = () => {
       skewY: 2,
     }
   }
+
   return (
     <div style={{ backgroundColor : lightMode ? 'white' : 'black'}} className="gigi-wrapper">
       <div className="gigi-hero-text">
@@ -129,24 +132,25 @@ const GigiHadid = () => {
       </div>
       <div className="gigi-nick">
         <div className="gigi-nick-text">
-          <h2>-Gigi, Squeegee ,Hazel Blue Green Girl-</h2>
+          <motion.h2 variants={caseTextVariants} animate={ lookAt ? 'show' : 'hide' } initial='hide' custom={1} >-Gigi, Squeegee ,Hazel Blue Green Girl-</motion.h2>
         </div>
       </div>
       <div className="gigi-case">
         <div className="gigi-case-text">
         
-        <motion.h2 variants={caseTextVariants} animate={ lightMode ? 'show' : 'hide' } initial='hide' custom={1}>UI / UX PATTERN</motion.h2>
-          <motion.h2 variants={caseTextVariants} animate={ lightMode ? 'show' : 'hide' } initial='hide' custom={2}>LOOK AT</motion.h2>
-          <ViewportObserver>
-            <motion.h3 variants={caseTextVariants} animate={ lightMode ? 'show' : 'hide' } initial='hide' custom={3} > 
+        <motion.h2 variants={caseTextVariants} animate={ lookAt ? 'show' : 'hide' } initial='hide' custom={2}>UI / UX PATTERN</motion.h2>
+          <motion.h2 variants={caseTextVariants} animate={ lookAt ? 'show' : 'hide' } initial='hide' custom={3}>LOOK AT</motion.h2>
+          <ViewportObserver onEnter={()=>setLookAt(true)}>
+            <motion.h3 variants={caseTextVariants} animate={ lookAt ? 'show' : 'hide' } initial='hide' custom={4} > 
               User Interface is most importent part of every website also the User
               Experiance.
             </motion.h3>
           </ViewportObserver>
         </div>
-        <HeroUi/>
-        <HeroUi/>
-        <ViewSite/>
+        <HeroUi image={image3} design={true} />
+        <HeroUi image={image4}/>
+        <ViewSite location='goto website'/>
+        <ViewSite location='check github'/>
       </div>
        </ViewportObserver>       
     </div>

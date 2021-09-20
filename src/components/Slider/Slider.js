@@ -1,22 +1,22 @@
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./style.scss";
-// import image from "../../assets/home-images/1.jpg";
+import image from "../../assets/home-images/3.jpg";
 import { useRef } from "react";
 // import useTransform  from "../../hooks/useTransform";
 //hook
 import useWindowSize from "../../hooks/useWindowSize";
 
 const Slider = () => {
-  const [ isAnimate,setAnimate ] = useState(false)
-  const [ click,setClick ] = useState(1)
-  const [ boxSize,setBoxSize ] = useState(900)
+  const [isAnimate, setAnimate] = useState(false);
+  const [click, setClick] = useState(1);
+  const [boxSize, setBoxSize] = useState(300);
 
   const sliderRef = useRef(null);
   const boxRef = useRef(null);
 
-  const size = useWindowSize()
+  const size = useWindowSize();
 
-  function getTranslateValues(element) {
+  const getTranslateValues= (element) => {
     const style = window.getComputedStyle(element);
 
     const matrix =
@@ -57,54 +57,68 @@ const Slider = () => {
   }
 
   useEffect(() => {
-    const boxWidth = boxRef.current.clientWidth
-    setBoxSize(boxWidth)
-    console.log(boxSize);
-  }, [])
+    nextSlideHandler()
+    setBoxSize(boxRef.current.clientWidth)
+  }, [size,boxSize]);
   const nextSlideHandler = (e) => {
-    setAnimate(true)
-    setTimeout(()=>{
-      setAnimate(false)
-    },2000)
+    setAnimate(true);
+    setTimeout(() => {
+      setAnimate(false);
+    }, 2000);
     const { x } = getTranslateValues(sliderRef.current);
-    if(parseInt(x) !== -(boxSize*5)){
-      if(!isAnimate){
-        setClick(click+1)
+    if (parseInt(x) !== -(boxSize * 5)) {
+      if (!isAnimate) {
+        setClick(click + 1);
         const transfromForw = click * boxSize;
-        console.log(boxSize);
         sliderRef.current.style.transform = `translateX(${-transfromForw}px)`;
       }
     }
   };
 
   const prevSlideHandler = () => {
-    setAnimate(true)
-    setTimeout(()=>{
-      setAnimate(false)
-    },2000)
+    setAnimate(true);
+    setTimeout(() => {
+      setAnimate(false);
+    }, 2000);
     const { x } = getTranslateValues(sliderRef.current);
     if (parseInt(x) !== 0) {
-      if(!isAnimate){
-        setClick(click-1)
+      if (!isAnimate) {
+        setClick(click - 1);
         let transformBack = parseInt(x) + boxSize;
         sliderRef.current.style.transform = `translateX(${transformBack}px)`;
-      }   
+      }
     }
   };
   return (
     <div className="slider-wrapper">
-      <div className="slider-container" ref={boxRef}>
-        <button disabled={ isAnimate ? true : false} onClick={prevSlideHandler}>prev slide</button>
-        <button disabled={ isAnimate ? true : false} onClick={nextSlideHandler}>next slide</button>
+      <div className="slider-container">
+        <div className="button-container">
+        <button disabled={isAnimate ? true : false} onClick={prevSlideHandler}>
+          prev slide
+        </button>
+        <button disabled={isAnimate ? true : false} onClick={nextSlideHandler}>
+          next slide
+        </button>
+        </div>
         <div className="slider-inner" ref={sliderRef}>
-          <div className="box">
-            box1
+          <div className="image-container">
+            <img src={image} ref={boxRef} />
           </div>
-          <div className="box">box2</div>
-          <div className="box">BOX3</div>
-          <div className="box">BOX4</div>
-          <div className="box">BOX5</div>
-          <div className="box">BOX6</div>
+          <div className="image-container">
+            <img src={image} ref={boxRef} />
+          </div>
+          <div className="image-container">
+            <img src={image} ref={boxRef} />
+          </div>
+          <div className="image-container">
+            <img src={image} ref={boxRef} />
+          </div>
+          <div className="image-container">
+            <img src={image} ref={boxRef} />
+          </div>
+          <div className="image-container">
+            <img src={image} ref={boxRef} />
+          </div>
         </div>
       </div>
     </div>

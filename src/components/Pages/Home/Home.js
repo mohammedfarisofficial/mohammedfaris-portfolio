@@ -13,10 +13,8 @@ import ViewportObserver from "viewport-observer";
 
 const Home = () => {
   //reveal state
-  const [reveal, setReveal] = useState({
-    gallery: false,
-    featuredTitle: false,
-  });
+  const [ gallery , setGallery ] = useState(false)
+  const [ experi , setExperi] = useState(false)
 
   // framer motion
   const HeroText = {
@@ -129,7 +127,7 @@ const Home = () => {
         <div className="item item1">
           <motion.img
             variants={imageMotion}
-            animate={reveal.gallery ? "show" : "hide"}
+            animate={gallery ? "show" : "hide"}
             initial="hide"
             custom="2"
             src={image2}
@@ -139,7 +137,7 @@ const Home = () => {
         <div className="item item2">
           <motion.img
             variants={imageMotion}
-            animate={reveal.gallery ? "show" : "hide"}
+            animate={gallery ? "show" : "hide"}
             initial="hide"
             custom="3"
             src={image3}
@@ -147,11 +145,11 @@ const Home = () => {
           />
         </div>
         <div className="item item3">
-          <ViewportObserver onEnter={() => setReveal({ gallery: true })}>
+          <ViewportObserver onEnter={() => setGallery(true)}>
             <motion.p>
               <motion.div
                 variants={HeroText}
-                animate={reveal.gallery ? "show" : "hide"}
+                animate={gallery ? "show" : "hide"}
                 initial="hide"
                 custom="1"
               >
@@ -160,7 +158,7 @@ const Home = () => {
               </motion.div>
               <motion.div
                 variants={HeroText}
-                animate={reveal.gallery ? "show" : "hide"}
+                animate={gallery ? "show" : "hide"}
                 initial="hide"
                 custom="1.4"
               >
@@ -169,7 +167,7 @@ const Home = () => {
               </motion.div>
               <motion.div
                 variants={HeroText}
-                animate={reveal.gallery ? "show" : "hide"}
+                animate={gallery ? "show" : "hide"}
                 initial="hide"
                 custom="1.8"
               >
@@ -178,7 +176,7 @@ const Home = () => {
               </motion.div>
               <motion.div
                 variants={HeroText}
-                animate={reveal.gallery ? "show" : "hide"}
+                animate={gallery ? "show" : "hide"}
                 initial="hide"
                 custom="2.2"
               >
@@ -187,7 +185,7 @@ const Home = () => {
               </motion.div>
               <motion.div
                 variants={HeroText}
-                animate={reveal.gallery ? "show" : "hide"}
+                animate={gallery ? "show" : "hide"}
                 initial="hide"
                 custom="2.6"
               >
@@ -196,7 +194,7 @@ const Home = () => {
               </motion.div>
               <motion.div
                 variants={HeroText}
-                animate={reveal.gallery ? "show" : "hide"}
+                animate={gallery ? "show" : "hide"}
                 initial="hide"
                 custom="3"
               >
@@ -205,7 +203,7 @@ const Home = () => {
               </motion.div>
               <motion.div
                 variants={HeroText}
-                animate={reveal.gallery ? "show" : "hide"}
+                animate={gallery ? "show" : "hide"}
                 initial="hide"
                 custom="3.4"
               >
@@ -217,12 +215,12 @@ const Home = () => {
       </div>
       <div className="home-featured">
         <ViewportObserver
-          onEnter={() => setReveal({ featuredTitle: true, gallery: true })}
+          onEnter={() => setExperi(true)}
         >
           <div className="featured-title">
             <motion.h2
               variants={HeroText}
-              animate={reveal.featuredTitle ? "show" : "hide"}
+              animate={experi ? "show" : "hide"}
               initial="hide"
               custom="1"
             >
@@ -230,7 +228,7 @@ const Home = () => {
             </motion.h2>
             <motion.p
               variants={HeroText}
-              animate={reveal.featuredTitle ? "show" : "hide"}
+              animate={experi ? "show" : "hide"}
               initial="hide"
               custom="1.4"
             >

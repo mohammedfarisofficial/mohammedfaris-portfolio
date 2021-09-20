@@ -10,6 +10,7 @@ import { useLocation } from "react-router";
 import useWindowSize from "../../hooks/useWindowSize";
 
 import Navbar from '../Navbar/Navbar'
+import Footer from "../Footer/Footer";
 
 const Layout = ({ children }) => {
   const location = useLocation()
@@ -71,6 +72,7 @@ const Layout = ({ children }) => {
         <div className="layout-inner" ref={scrollContainer}>
           <Navbar />
           {children}
+          <Footer/>
         </div>
       </div>
     );
