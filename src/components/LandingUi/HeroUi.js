@@ -1,11 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState } from 'react'
+import "./style.scss";
 // import image from '../../assets/gigi-website/1.png'
 // import image2 from '../../assets/gigi-website/2.png'
-import figma from "../../assets/icons/figma.svg";
-import react from '../../assets/icons/react.svg'
-import gsap from '../../assets/icons/gsap.svg'
-import "./style.scss";
+import { motion } from "framer-motion";
+//intersection obr
+import ViewportObserver from "viewport-observer";
+
+// import figma from "../../assets/icons/figma.svg";
+import reactIcon from "../../assets/icons/react.svg";
+import gsapIcon from "../../assets/icons/gsap.svg";
+
 const HeroUi = ({ design, desciption, image }) => {
+  //reveal
+  const [ imgReveal,setImgReveal] = useState(false)
+  const [ txtReveal,setTxtReveal] = useState(false)
   //compoent data
   //   const designList = [
   //      'HELLO',
@@ -15,35 +23,63 @@ const HeroUi = ({ design, desciption, image }) => {
   const techList = [
     {
       name: "React.js",
-      icon: react,
+      icon: reactIcon,
     },
     {
       name: "gsap",
-      icon: gsap,
+      icon: gsapIcon,
     },
   ];
+
+  // framer motion
+  const textReveal = {
+    show: (delay) => ({
+      y: 0,
+      skewY: 0,
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: delay * 0.2,
+      },
+    }),
+    hide: {
+      opacity: 0,
+      y: 40,
+      skewY: 3,
+    },
+  };
   return (
     <div className="hero-ui">
+        <ViewportObserver onEnter={()=>setImgReveal(true)}>
       <div className="ui-image">
-        <img src={image} alt="screen shot of website" />
+          <motion.img
+            initial={{ opacity: 0 , y : 40 }}
+            animate={{ opacity: imgReveal ? 1 : 0 , y : imgReveal ? 0 : 40 }}
+            transition={{ duration: 2 }}
+            src={image}
+            alt="screen shot of website"
+          />
       </div>
+        </ViewportObserver>
       <div className="ui-image-text">
-        <h4>UI DESIGN OF GIGI PORTFOLIO</h4>
+        <motion.h4  variants={textReveal} animate={txtReveal ? 'show' : 'hide'}  initial='hide' custom={2} >UI DESIGN OF GIGI PORTFOLIO</motion.h4>
       </div>
+      <ViewportObserver onEnter={()=> setTxtReveal(true)}>
       <div className="ui-tech">
         {design ? (
-          <h3>DESIGN &amp; PROTOTYPING TOOLS :</h3>
+          <motion.h3 variants={textReveal} animate={txtReveal ? 'show' : 'hide'} initial='hide' custom={'1'} >DESIGN &amp; PROTOTYPING TOOLS :</motion.h3>
         ) : (
-          <h3>USED TECHNOLOGIES :</h3>
+          <motion.h3 variants={textReveal} animate={txtReveal ? 'show' : 'hide'} initial='hide' custom={'2'} >USED TECHNOLOGIES :</motion.h3>
         )}
 
         {techList.map((item, key) => (
-          <div key={key}>
+          <motion.div variants={textReveal} animate={txtReveal ? 'show' : 'hide'} initial='hide' custom={2} key={key}>
             <img src={item.icon} alt="" />
             <h4>{item.name}</h4>
-          </div>
+          </motion.div>
         ))}
       </div>
+      </ViewportObserver>
     </div>
   );
 };

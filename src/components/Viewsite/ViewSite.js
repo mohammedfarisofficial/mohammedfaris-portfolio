@@ -1,12 +1,24 @@
+import { useState } from 'react'
 import "./style.scss";
 import LinkIcon from "../../assets/icons/link.svg";
+import { motion } from "framer-motion";
+import ViewportObserver from "viewport-observer";
+
 const ViewSite = ({ location }) => {
+  const [ txtReveal,setTxtReveal] = useState(false)
   return (
     <div className="viewsite-wrapper">
-      <div className="viewsite-container">
+      <ViewportObserver onEnter={()=>setTxtReveal(true)}>
+      <motion.div
+        animate={{ opacity: txtReveal ? 1 : 0, y: txtReveal ? 0 : 40 }}
+        initial={{ opacity: 0 , y : 40 }}
+        transition={{ duration: 2 }}
+        className="viewsite-container"
+      >
         <img src={LinkIcon} alt="check out the page" />
         <h4>{location}</h4>
-      </div>
+      </motion.div>
+      </ViewportObserver>
     </div>
   );
 };

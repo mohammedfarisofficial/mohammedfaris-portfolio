@@ -14,6 +14,18 @@ import video3 from "../../assets/nav-videos/video3.mp4";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [ light, setLight ] = useState(false)
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if(location.pathname === '/ecommerce'){
+      setLight(true)
+    }else{
+      setLight(false)
+    }
+    console.log(light);
+  }, [location.pathname,light])
 
   const navSliderRef = useRef(null);
   const handleOpenNav = () => {
@@ -126,13 +138,13 @@ const Navbar = () => {
     },
     {
       id: "03",
-      title: "coming soon",
-      path: "my portfolio case study",
+      title: "Building 👨‍💻",
+      path: "gigi-hadid",
       video: "gigi-hadid.mp4",
     },
   ];
   // scroll to top when change the route
-  const location = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.key]);
@@ -141,12 +153,12 @@ const Navbar = () => {
     <div className="pro-navbar">
       <Link to="/ecommerce" style={{ textDecoration: "none", color: "black" }}>
         <motion.div variants={animationMenuVariants} initial='hide' animate='show' whileHover='hover' className="pro-back">
-          <KeyboardBackspaceIcon className="back-icon" /> <h3>go back</h3>
+          <KeyboardBackspaceIcon style={{ color : light ? 'black' : 'white'}} className="back-icon" /> <h3 style={{ color : light ? 'black' : 'white'}} >go back</h3>
         </motion.div>
       </Link>
       <motion.div variants={animationMenuVariants} initial='hide' animate='show' className="pro-hanburger" onClick={handleOpenNav}>
-        <span></span>
-        <span></span>
+        <span style={{ backgroundColor : light ? 'black' : 'white'}} ></span>
+        <span style={{ backgroundColor : light ? 'black' : 'white'}} ></span>
       </motion.div>
       <motion.div
         animate={{ x: open ? 0 : "100%" , skewX : open ? [ 0,5, 10,5, 0] : [ 0, -5, -10,-5,  0] }}

@@ -15,21 +15,7 @@
     .hero-heading {
       margin-bottom: 0.5rem;
       h2 {
-        font-weight: 600;
-        color: #000;
-        font-size: 2.3rem;
-        @media (max-width: $tablet) {
-          font-size: 1.8rem;
-        }
-        @media (max-width: $smallTablet) {
-          font-size: 1.4rem;
-        }
-        @media (max-width: $extraSmallTablet) {
-          font-size: 1.2rem;
-        }
-        @media (max-width: $bigPhone) {
-          font-size: 1rem;
-        }
+        @include homeLanding;
       }
     }
     .hero-subheading {

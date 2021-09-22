@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./style.scss";
 import image from "../../assets/home-images/3.jpg";
 import { useRef } from "react";
@@ -56,11 +56,7 @@ const Slider = () => {
     }
   }
 
-  useEffect(() => {
-    nextSlideHandler()
-    setBoxSize(boxRef.current.clientWidth)
-  }, [size,boxSize]);
-  const nextSlideHandler = (e) => {
+  const nextSlideHandler = useCallback((e) => {
     setAnimate(true);
     setTimeout(() => {
       setAnimate(false);
@@ -73,7 +69,11 @@ const Slider = () => {
         sliderRef.current.style.transform = `translateX(${-transfromForw}px)`;
       }
     }
-  };
+  },[click,boxSize,isAnimate])
+  useEffect(() => {
+    nextSlideHandler()
+    setBoxSize(boxRef.current.clientWidth)
+  }, [size,boxSize,nextSlideHandler]);
 
   const prevSlideHandler = () => {
     setAnimate(true);
@@ -102,22 +102,22 @@ const Slider = () => {
         </div>
         <div className="slider-inner" ref={sliderRef}>
           <div className="image-container">
-            <img src={image} ref={boxRef} />
+            <img alt='' src={image} ref={boxRef} />
           </div>
           <div className="image-container">
-            <img src={image} ref={boxRef} />
+            <img alt='' src={image} ref={boxRef} />
           </div>
           <div className="image-container">
-            <img src={image} ref={boxRef} />
+            <img alt='' src={image} ref={boxRef} />
           </div>
           <div className="image-container">
-            <img src={image} ref={boxRef} />
+            <img alt='' src={image} ref={boxRef} />
           </div>
           <div className="image-container">
-            <img src={image} ref={boxRef} />
+            <img alt='' src={image} ref={boxRef} />
           </div>
           <div className="image-container">
-            <img src={image} ref={boxRef} />
+            <img alt='' src={image} ref={boxRef} />
           </div>
         </div>
       </div>

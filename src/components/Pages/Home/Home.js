@@ -11,6 +11,7 @@ import "intersection-observer";
 import ViewportObserver from "viewport-observer";
 
 
+
 const Home = () => {
   //reveal state
   const [ gallery , setGallery ] = useState(false)
@@ -60,7 +61,7 @@ const Home = () => {
               initial="hide"
               custom="1"
             >
-              I’m Mohammed Faris ,a creative{" "}
+              I’m Mohammed Faris ,a creative
             </motion.div>
             <motion.div
               variants={HeroText}
@@ -118,7 +119,7 @@ const Home = () => {
           className="hero-available"
         >
           <div className="beat-container">
-            <img src={image} alt="my photo" />
+            <img src={image} alt="mine" />
           </div>
           <h3>Currently available for freelance or part-time work</h3>
         </motion.div>

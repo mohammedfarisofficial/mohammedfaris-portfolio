@@ -1,0 +1,38 @@
+@import "../../styles/commonStyle.scss";
+.details-wrapper {
+  width: 100%;
+  height: 30vh;
+  //   background-color: yellow;
+  display: flex;
+  margin-top: 1rem;
+  //   @include CommonPadding2;
+//   border : 1px solid rgba(0, 0, 0, 0.185);
+  padding: .4rem;
+  .details-text {
+    padding-top: 2rem;
+    width: 70%;
+    .details-heading {
+      margin-bottom: 0.2rem;
+      h3 {
+        @include footerSocial;
+      }
+    }
+    .details-paragraph {
+      width: 60%;
+      padding-left: 0.5rem;
+      p {
+        @include description;
+      }
+    }
+  }
+  .details-screenshot {
+    width: 30%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

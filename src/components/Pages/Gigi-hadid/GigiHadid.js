@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./style.scss";
 import { Link } from "react-router-dom";
-import { m, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import image1 from "../../../assets/gig-hadid-images/image1.jpg";
 import image2 from "../../../assets/gig-hadid-images/image2.jpg";
@@ -11,7 +11,7 @@ import image3 from '../../../assets/gigi-website/1.png'
 import image4 from '../../../assets/gigi-website/2.png'
 
 //icons for component
-import figmaIcon from '../../../assets/icons/figma.svg'
+// import figmaIcon from '../../../assets/icons/figma.svg'
 
 //intersection observer
 import "intersection-observer";
