@@ -3,7 +3,6 @@
 .pro-navbar {
   width: 100%;
   height: 8rem;
-  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -74,7 +73,7 @@
     top: 0;
     height: 100vh;
     width: 100%;
-    background-color: #ffff;
+    background-color: #EBEDEC;
     // overflow: hidden ;
     .nav-routes {
       width: 50%;
@@ -139,7 +138,7 @@
     .pro-video-reveal {
       width: 60vw;
       height: 100%;
-      background-color: #fff;
+      background-color: #EBEDEC;
       position: absolute;
       top: 0;
       left: 45%;

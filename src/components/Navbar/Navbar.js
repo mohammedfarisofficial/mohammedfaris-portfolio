@@ -24,7 +24,7 @@ const Navbar = () => {
     }else{
       setLight(false)
     }
-    console.log(light);
+    console.log(location.pathname);
   }, [location.pathname,light])
 
   const navSliderRef = useRef(null);
@@ -139,7 +139,7 @@ const Navbar = () => {
     {
       id: "03",
       title: "Building 👨‍💻",
-      path: "gigi-hadid",
+      path: "",
       video: "gigi-hadid.mp4",
     },
   ];

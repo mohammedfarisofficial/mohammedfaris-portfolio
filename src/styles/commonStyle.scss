@@ -8,6 +8,7 @@
     font-size: 15px;
   }
 }
+
 //paddings
 
 @mixin CommonPadding {
@@ -18,6 +19,18 @@
 }
 @mixin CommonPadding2 {
   padding: 0 3rem;
+  @media (max-width: $smallTablet) {
+    padding: 0 1rem;
+  }
+}
+@mixin NotFoundPadding {
+  padding: 0 10rem;
+  @media (max-width: $tablet) {
+    padding: 0 6rem;
+  }
+  @media (max-width: $smallLaptop) {
+    padding: 0 8rem;
+  }
   @media (max-width: $smallTablet) {
     padding: 0 1rem;
   }

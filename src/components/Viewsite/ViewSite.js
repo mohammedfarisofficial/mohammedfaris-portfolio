@@ -10,9 +10,9 @@ const ViewSite = ({ location }) => {
     <div className="viewsite-wrapper">
       <ViewportObserver onEnter={()=>setTxtReveal(true)}>
       <motion.div
-        animate={{ opacity: txtReveal ? 1 : 0, y: txtReveal ? 0 : 40 }}
-        initial={{ opacity: 0 , y : 40 }}
-        transition={{ duration: 2 }}
+        animate={{ y: txtReveal ? 0 : 40 }}
+        initial={{ y : 40 }}
+        transition={{ duration:1}}
         className="viewsite-container"
       >
         <img src={LinkIcon} alt="check out the page" />

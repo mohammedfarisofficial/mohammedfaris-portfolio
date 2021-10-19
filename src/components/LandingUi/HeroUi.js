@@ -36,16 +36,16 @@ const HeroUi = ({ design, desciption, image }) => {
     show: (delay) => ({
       y: 0,
       skewY: 0,
-      opacity: 1,
+      opacity :1,
       transition: {
-        duration: 2,
+        duration: 1,
         delay: delay * 0.2,
       },
     }),
     hide: {
-      opacity: 0,
       y: 40,
       skewY: 3,
+      opacity : 0
     },
   };
   return (
@@ -53,8 +53,8 @@ const HeroUi = ({ design, desciption, image }) => {
         <ViewportObserver onEnter={()=>setImgReveal(true)}>
       <div className="ui-image">
           <motion.img
-            initial={{ opacity: 0 , y : 40 }}
-            animate={{ opacity: imgReveal ? 1 : 0 , y : imgReveal ? 0 : 40 }}
+            initial={{  y : 40 }}
+            animate={{ y : imgReveal ? 0 : 40 }}
             transition={{ duration: 2 }}
             src={image}
             alt="screen shot of website"
@@ -73,7 +73,7 @@ const HeroUi = ({ design, desciption, image }) => {
         )}
 
         {techList.map((item, key) => (
-          <motion.div variants={textReveal} animate={txtReveal ? 'show' : 'hide'} initial='hide' custom={2} key={key}>
+          <motion.div variants={textReveal} animate={txtReveal ? 'show' : 'hide'} initial='hide' custom={2 * (key+1)} key={key}>
             <img src={item.icon} alt="" />
             <h4>{item.name}</h4>
           </motion.div>

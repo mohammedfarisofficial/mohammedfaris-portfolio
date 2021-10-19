@@ -18,10 +18,11 @@ import "intersection-observer";
 import ViewportObserver from "viewport-observer";
 import HeroUi from "../../LandingUi/HeroUi";
 import ViewSite from "../../Viewsite/ViewSite";
+import Title from "../../Title/Title";
 
 const GigiHadid = () => {
   //reveal animation
-  const [ lookAt,setLookAt ] = useState(false)
+  const [ nick,setNick ] = useState(false)
   // theme 
   const [ lightMode, setLightMode ] = useState(false)
   //framer motion 
@@ -132,21 +133,13 @@ const GigiHadid = () => {
       </div>
       <div className="gigi-nick">
         <div className="gigi-nick-text">
-          <motion.h2 variants={caseTextVariants} animate={ lookAt ? 'show' : 'hide' } initial='hide' custom={1} >-Gigi, Squeegee ,Hazel Blue Green Girl-</motion.h2>
+          <ViewportObserver onEnter={()=>setNick(true)}>
+          <motion.h2 variants={caseTextVariants} animate={ nick ? 'show' : 'hide' } initial='hide' custom={1} >-Gigi, Squeegee ,Hazel Blue Green Girl-</motion.h2>
+          </ViewportObserver>
         </div>
       </div>
       <div className="gigi-case">
-        <div className="gigi-case-text">
-        
-        <motion.h2 variants={caseTextVariants} animate={ lookAt ? 'show' : 'hide' } initial='hide' custom={2}>UI / UX PATTERN</motion.h2>
-          <motion.h2 variants={caseTextVariants} animate={ lookAt ? 'show' : 'hide' } initial='hide' custom={3}>LOOK AT</motion.h2>
-          <ViewportObserver onEnter={()=>setLookAt(true)}>
-            <motion.h3 variants={caseTextVariants} animate={ lookAt ? 'show' : 'hide' } initial='hide' custom={4} > 
-              User Interface is most importent part of every website also the User
-              Experiance.
-            </motion.h3>
-          </ViewportObserver>
-        </div>
+        <Title/>
         <HeroUi image={image3} design={true} />
         <HeroUi image={image4}/>
         <ViewSite location='goto website'/>

@@ -1,0 +1,24 @@
+@import '../../styles/styleData.scss';
+@import '../../styles/commonStyle.scss';
+.gigi-case-text{
+     width: 100%;
+     height: 30vh;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     h2:nth-child(1){
+       font-size: 18px;
+       font-weight: 600;
+     }
+     h2:nth-child(2){
+       font-size: 64px;
+       font-weight: 600;
+       @media (max-width: $bigPhone){
+         font-size: 48px;
+       }
+     }
+     h3{
+       @include paragraph;
+     }
+   }

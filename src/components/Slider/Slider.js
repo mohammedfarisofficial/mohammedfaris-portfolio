@@ -16,7 +16,7 @@ const Slider = () => {
 
   const size = useWindowSize();
 
-  const getTranslateValues= (element) => {
+  const getTranslateValues = (element) => {
     const style = window.getComputedStyle(element);
 
     const matrix =
@@ -54,26 +54,36 @@ const Slider = () => {
         z: matrixValues[14],
       };
     }
-  }
+  };
 
-  const nextSlideHandler = useCallback((e) => {
-    setAnimate(true);
-    setTimeout(() => {
-      setAnimate(false);
-    }, 2000);
-    const { x } = getTranslateValues(sliderRef.current);
-    if (parseInt(x) !== -(boxSize * 5)) {
-      if (!isAnimate) {
-        setClick(click + 1);
-        const transfromForw = click * boxSize;
-        sliderRef.current.style.transform = `translateX(${-transfromForw}px)`;
+  const nextSlideHandler = useCallback(
+    (e) => {
+      // let rect = sliderRef.current.getBoundingClientRect();
+
+      // let position = {
+      //   top: rect.top + window.pageYOffset,
+      //   left: rect.left + window.pageXOffset,
+      // };
+      // console.log(position);
+      setAnimate(true);
+      setTimeout(() => {
+        setAnimate(false);
+      }, 2000);
+      const { x } = getTranslateValues(sliderRef.current);
+      if (parseInt(x) !== -(boxSize * 5)) {
+        if (!isAnimate) {
+          setClick(click + 1);
+          const transfromForw = click * boxSize;
+          sliderRef.current.style.transform = `translateX(${-transfromForw}px)`;
+        }
       }
-    }
-  },[click,boxSize,isAnimate])
+    },
+    [click, boxSize, isAnimate]
+  );
   useEffect(() => {
-    nextSlideHandler()
-    setBoxSize(boxRef.current.clientWidth)
-  }, [size,boxSize,nextSlideHandler]);
+    nextSlideHandler();
+    setBoxSize(boxRef.current.clientWidth);
+  }, [size, boxSize]);
 
   const prevSlideHandler = () => {
     setAnimate(true);
@@ -93,31 +103,37 @@ const Slider = () => {
     <div className="slider-wrapper">
       <div className="slider-container">
         <div className="button-container">
-        <button disabled={isAnimate ? true : false} onClick={prevSlideHandler}>
-          prev slide
-        </button>
-        <button disabled={isAnimate ? true : false} onClick={nextSlideHandler}>
-          next slide
-        </button>
+          <button
+            disabled={isAnimate ? true : false}
+            onClick={prevSlideHandler}
+          >
+            prev slide
+          </button>
+          <button
+            disabled={isAnimate ? true : false}
+            onClick={nextSlideHandler}
+          >
+            next slide
+          </button>
         </div>
         <div className="slider-inner" ref={sliderRef}>
           <div className="image-container">
-            <img alt='' src={image} ref={boxRef} />
+            <img alt="" src={image} ref={boxRef} />
           </div>
           <div className="image-container">
-            <img alt='' src={image} ref={boxRef} />
+            <img alt="" src={image} ref={boxRef} />
           </div>
           <div className="image-container">
-            <img alt='' src={image} ref={boxRef} />
+            <img alt="" src={image} ref={boxRef} />
           </div>
           <div className="image-container">
-            <img alt='' src={image} ref={boxRef} />
+            <img alt="" src={image} ref={boxRef} />
           </div>
           <div className="image-container">
-            <img alt='' src={image} ref={boxRef} />
+            <img alt="" src={image} ref={boxRef} />
           </div>
           <div className="image-container">
-            <img alt='' src={image} ref={boxRef} />
+            <img alt="" src={image} ref={boxRef} />
           </div>
         </div>
       </div>
