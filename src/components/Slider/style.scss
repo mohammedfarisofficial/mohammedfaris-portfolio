@@ -22,11 +22,14 @@
         outline: none;
         color: white;
       }
+      #range-control{
+        transform: rotate(180deg);
+      }
     }
     .slider-inner {
       display: flex;
       transform: translateX(0);
-      transition: transform 2s ease;
+      transition: transform 1s ease;
       width: calc(500 * 6px);
       height: 50%;
       transform-origin: left;

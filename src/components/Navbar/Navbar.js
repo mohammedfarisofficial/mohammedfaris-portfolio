@@ -1,6 +1,6 @@
 import { useRef, useState , useMemo} from "react";
 import { Link , NavLink} from "react-router-dom";
-import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
+// import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import "./navbar.scss";
@@ -19,10 +19,10 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if(location.pathname === '/ecommerce'){
-      setLight(true)
-    }else{
+    if(location.pathname === '/gigi-hadid'){
       setLight(false)
+    }else{
+      setLight(true)
     }
     console.log(location.pathname);
   }, [location.pathname,light])
@@ -153,7 +153,7 @@ const Navbar = () => {
     <div className="pro-navbar">
       <Link to="/ecommerce" style={{ textDecoration: "none", color: "black" }}>
         <motion.div variants={animationMenuVariants} initial='hide' animate='show' whileHover='hover' className="pro-back">
-          <KeyboardBackspaceIcon style={{ color : light ? 'black' : 'white'}} className="back-icon" /> <h3 style={{ color : light ? 'black' : 'white'}} >go back</h3>
+           <h3 style={{ color : light ? 'black' : 'white'}} >.FM</h3>
         </motion.div>
       </Link>
       <motion.div variants={animationMenuVariants} initial='hide' animate='show' className="pro-hanburger" onClick={handleOpenNav}>

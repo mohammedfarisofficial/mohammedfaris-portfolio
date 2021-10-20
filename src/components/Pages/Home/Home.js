@@ -4,13 +4,13 @@ import image from "../../../assets/home-images/1.jpg";
 import image2 from "../../../assets/home-images/2.jpg";
 import image3 from "../../../assets/home-images/3.jpg";
 
-import Slider from "../../Slider/Slider";
+// import Slider from "../../Slider/Slider";
 import { motion } from "framer-motion";
 // observers
 import "intersection-observer";
 import ViewportObserver from "viewport-observer";
 
-
+import Splider from "../../Splide/Splider";
 
 const Home = () => {
   //reveal state
@@ -37,7 +37,6 @@ const Home = () => {
   const imageMotion = {
     show: (delay) => ({
       opacity: 1,
-      borderRadius: 0,
       blur: 0,
       transition: {
         duration: 0.2,
@@ -46,7 +45,6 @@ const Home = () => {
     }),
     hide: {
       opacity: 0,
-      borderRadius: "50%",
       blur: "20px",
     },
   };
@@ -238,7 +236,8 @@ const Home = () => {
             </motion.p>
           </div>
         </ViewportObserver>
-        <Slider />
+        {/* <Slider /> */}
+      <Splider/>
       </div>
     </div>
   );

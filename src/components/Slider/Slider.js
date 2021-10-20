@@ -10,7 +10,8 @@ const Slider = () => {
   const [isAnimate, setAnimate] = useState(false);
   const [click, setClick] = useState(1);
   const [boxSize, setBoxSize] = useState(300);
-
+  
+  const rangeRef = useRef(null)
   const sliderRef = useRef(null);
   const boxRef = useRef(null);
 
@@ -68,9 +69,11 @@ const Slider = () => {
       setAnimate(true);
       setTimeout(() => {
         setAnimate(false);
-      }, 2000);
+      }, 1000);
       const { x } = getTranslateValues(sliderRef.current);
-      if (parseInt(x) !== -(boxSize * 5)) {
+      if (parseInt(x) === -(boxSize * 5) && parseInt(x) >= -(boxSize * 5) ) {
+        console.log('noting');
+      }else{
         if (!isAnimate) {
           setClick(click + 1);
           const transfromForw = click * boxSize;
@@ -84,6 +87,7 @@ const Slider = () => {
     nextSlideHandler();
     setBoxSize(boxRef.current.clientWidth);
   }, [size, boxSize]);
+  console.log('rerendering');
 
   const prevSlideHandler = () => {
     setAnimate(true);
@@ -99,10 +103,25 @@ const Slider = () => {
       }
     }
   };
+  let preRange = 0
+  let range = 0
+  const rangeHandler = (e) => {
+    console.log(preRange);
+    if( preRange < e.target.value){
+      console.log('forward');
+      preRange = e.target.value
+    }
+    if( preRange > e.target.value) {
+      console.log('backward');
+      preRange = e.target.value
+    }
+    range = e.target.value
+  }
   return (
     <div className="slider-wrapper">
       <div className="slider-container">
         <div className="button-container">
+          <input ref={rangeRef} id='range-control' type="range" min='0' max='6' step='1' onInput={ (e)=> rangeHandler(e) }/>
           <button
             disabled={isAnimate ? true : false}
             onClick={prevSlideHandler}

@@ -71,7 +71,7 @@ const Layout = ({ children }) => {
   useEffect(() => {
     setTimeout(() => {
       setFinishLoading(false);
-    }, 1000);
+    }, 500);
   }, []);
 
   //set the height of the body.
