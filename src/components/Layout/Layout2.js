@@ -3,6 +3,8 @@ import "./style.scss";
 
 import { motion, AnimatePresence } from "framer-motion";
 
+import { CustomCursor } from "../../CustomCursor/index.js"; 
+
 //Hooks
 import useWindowSize from "../../hooks/useWindowSize";
 
@@ -12,7 +14,7 @@ import Loading from "../Loading/Loading";
 import Footer from "../Footer/Footer";
 
 const Layout = ({ children }) => {
-  const [finishLoading, setFinishLoading] = useState(true);
+  const [finishLoading, setFinishLoading] = useState(false);
   const location = useLocation()
 
   //Hook to grab window size
@@ -98,6 +100,7 @@ const Layout = ({ children }) => {
                 exit={{ opacity: 0 }}
               >
                 <div>
+                  <CustomCursor/>
                   <main>{children}</main>
                 </div>
                 <Footer/>

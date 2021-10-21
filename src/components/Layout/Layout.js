@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import "./style.scss";
 import { useLocation } from "react-router";
-// import { CustomCursor } from "../../CustomCursor/index.js"; 
+import { CustomCursor } from "../../CustomCursor/index.js"; 
 import useWindowSize from "../../hooks/useWindowSize";
 
 import Navbar from '../Navbar/Navbar'
@@ -68,7 +68,7 @@ const Layout = ({ children }) => {
   };
     return (
       <div className="layout-wrapper">
-        {/* <CustomCursor /> */}
+        <CustomCursor />
         <div className="layout-inner" ref={scrollContainer}>
           <Navbar />
           {children}

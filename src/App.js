@@ -9,7 +9,6 @@ import DjangoEcommerce from "./components/Pages/Ecomerce/DjangoEcommerce";
 
 import "./styles/globalStyle.scss";
 // import PageNotFound from "./components/404/PageNotFound";
-// import { colors } from "@material-ui/core";
 
 import Navbar from "./components/Navbar/Navbar";
 
