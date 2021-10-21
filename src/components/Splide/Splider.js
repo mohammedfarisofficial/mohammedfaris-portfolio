@@ -13,7 +13,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 import { motion } from "framer-motion";
 
 const Splider = () => {
-  const [imgReveal, setImgReveal] = useState(false);
+  const [imgReveal, setImgReveal] = useState(true);
   const [isMobile, setIsMobile] = useState(false)
   const size = useWindowSize()
 

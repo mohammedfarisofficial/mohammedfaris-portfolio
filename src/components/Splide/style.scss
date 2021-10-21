@@ -23,6 +23,12 @@
      letter-spacing: -2px;
      color: #000;
      font-size: 1.5rem;
+     @media ( max-width : $tablet){
+       font-size: 1.2rem;
+     }
+     @media ( max-width : $bigPhone){
+       font-size: 1rem;
+     }
   }
   p {
     width: 90%;
