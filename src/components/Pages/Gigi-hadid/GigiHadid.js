@@ -62,6 +62,17 @@ const GigiHadid = () => {
       skewY: 2,
     }
   }
+  const lazyImageMotion = {
+    show:{
+      filter:["blur(20px)","blur(15px)","blur(10px)","blur(0"],
+      transition: {
+        duration: 1,
+        delay: 0.2,
+      }},
+    hide: {
+      filter:"blur(30px)"
+    },
+  };
 
   return (
     <div style={{ backgroundColor : lightMode ? 'white' : 'black'}} className="gigi-wrapper">
@@ -81,7 +92,7 @@ const GigiHadid = () => {
         </h2>
       </div>
       <div className="gigi-hero-image">
-        <img src={image1} alt="gigi hadid graphic art" />
+        <motion.img variants={lazyImageMotion} initial='hide' animate='show' src={image1} alt="gigi hadid graphic art" />
       </div>
       <ViewportObserver onEnter={ ()=> setLightMode(true)} onLeave={()=> setLightMode(false)}>
       <div className="gigi-about">
@@ -126,7 +137,7 @@ const GigiHadid = () => {
           </div>
           <div className="gigi-about-content-image">
               <div className="gigi-about-content-image-inner">
-                <img src={image2} alt="gigi model shot" />
+                <motion.img variants={lazyImageMotion} initial='hide' animate='show' src={image2} alt="gigi model shot" />
               </div>
           </div>
         </div>

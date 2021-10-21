@@ -9,6 +9,7 @@ import DjangoEcommerce from "./components/Pages/Ecomerce/DjangoEcommerce";
 
 import "./styles/globalStyle.scss";
 // import PageNotFound from "./components/404/PageNotFound";
+import CustomCursor from "./CustomCursor";
 
 import Navbar from "./components/Navbar/Navbar";
 
@@ -22,19 +23,16 @@ function App() {
   }, []);
   return (
     <Switch>
-      {loading ? (
-        <h2>loading</h2>
-      ) : (
-        <>
-        <Layout2>
-          <Navbar/>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/gigi-hadid" component={GigiHadid} />
-          <Route exact path="/ecommerce" component={DjangoEcommerce} />
-        </Layout2>
-          {/* <Route component={PageNotFound} /> */}
-        </>
-      )}
+      <>
+      <CustomCursor />
+      <Layout2>
+        <Navbar />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/gigi-hadid" component={GigiHadid} />
+        <Route exact path="/ecommerce" component={DjangoEcommerce} />
+      </Layout2>
+      </>
+      {/* <Route component={PageNotFound} /> */}
     </Switch>
   );
 }

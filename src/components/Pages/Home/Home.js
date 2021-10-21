@@ -11,6 +11,7 @@ import "intersection-observer";
 import ViewportObserver from "viewport-observer";
 
 import Splider from "../../Splide/Splider";
+import { Height } from "@material-ui/icons";
 
 const Home = () => {
   //reveal state
@@ -36,16 +37,14 @@ const Home = () => {
   };
   const imageMotion = {
     show: (delay) => ({
-      opacity: 1,
-      blur: 0,
+      filter:["blur(50px)","blur(30px)","blur(10px)","blur(0"],
       transition: {
-        duration: 0.2,
+        duration: 1,
         delay: delay * 0.2,
       },
     }),
     hide: {
-      opacity: 0,
-      blur: "20px",
+      filter:"blur(50px)"
     },
   };
   return (

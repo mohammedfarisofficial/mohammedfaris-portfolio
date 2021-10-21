@@ -3,13 +3,13 @@
 .home-wrapper {
   width: 100%;
   height: 300vh;
-  @media (max-width : $smallTablet){
+  @media (max-width: $smallTablet) {
     height: 280vh;
   }
-  @media (max-width : $bigPhone){
+  @media (max-width: $bigPhone) {
     height: 240vh;
   }
-  background-color:#fff; 
+  background-color: #fff;
   .home-hero {
     width: 100%;
     height: 100vh;
@@ -118,6 +118,7 @@
     }
     .item1 {
       grid-row: 1 / span 2;
+
       @media (max-width: $bigPhone) {
         display: none;
       }
@@ -125,7 +126,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
+        position: relative;
       }
     }
     .item2 {
@@ -162,7 +163,7 @@
           font-size: 13px;
         }
       }
-      p{
+      p {
         width: 20%;
         @include description;
         @media (max-width: $tablet) {

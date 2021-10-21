@@ -95,12 +95,10 @@ const Layout = ({ children }) => {
             <Loading/>
           ) : (
               <motion.div
-                // initial={{ opacity: 0 }}
-                // animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
+                  {/* <CustomCursor/> */}
                 <div>
-                  <CustomCursor/>
                   <main>{children}</main>
                 </div>
                 <Footer/>
