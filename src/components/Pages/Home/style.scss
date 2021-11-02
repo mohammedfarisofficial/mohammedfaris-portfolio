@@ -130,10 +130,16 @@
       }
     }
     .item2 {
+      @media (max-width: $bigPhone) {
+        border-radius: 8px;;
+      }
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        @media (max-width: $bigPhone) {
+          border-radius: 8px;;
+        }
       }
     }
     .item3 {

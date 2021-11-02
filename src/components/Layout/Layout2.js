@@ -1,20 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import "./style.scss";
 
-import { motion, AnimatePresence } from "framer-motion";
-
-import { CustomCursor } from "../../CustomCursor/index.js"; 
+import { motion } from "framer-motion";
 
 //Hooks
 import useWindowSize from "../../hooks/useWindowSize";
-
 import { useLocation } from "react-router";
 
-import Loading from "../Loading/Loading";
-import Footer from "../Footer/Footer";
+//component
+import LayoutInner from "./LayoutInner";
 
 const Layout = ({ children }) => {
-  const [finishLoading, setFinishLoading] = useState(false);
+  const [finishLoading, setFinishLoading] = useState(true);
   const location = useLocation()
 
   //Hook to grab window size
@@ -67,13 +64,13 @@ const Layout = ({ children }) => {
     //Assign skew and smooth scrolling to the scroll container
     setState({ scroll: data.rounded, skew: skew });
     //loop vai raf
-    requestAnimationFrame(() => skewScrolling());
+    // requestAnimationFrame(() => skewScrolling());
   };
-
+  let loadingTime = 3000
   useEffect(() => {
     setTimeout(() => {
       setFinishLoading(false);
-    }, 500);
+    }, loadingTime);
   }, []);
 
   //set the height of the body.
@@ -90,21 +87,7 @@ const Layout = ({ children }) => {
         ref={scrollContainer}
         className="smooth-scroll"
       >
-        <AnimatePresence>
-          {finishLoading ? (
-            <Loading/>
-          ) : (
-              <motion.div
-                exit={{ opacity: 0 }}
-              >
-                  {/* <CustomCursor/> */}
-                <div>
-                  <main>{children}</main>
-                </div>
-                <Footer/>
-              </motion.div>
-          )}
-        </AnimatePresence>
+        <LayoutInner time={loadingTime} children={children} finishLoading={finishLoading} />    
       </div>
     </motion.div>
   );
