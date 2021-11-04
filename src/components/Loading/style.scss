@@ -5,6 +5,9 @@
   background-color: #fff;
   z-index: 9999;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   .loading-container {
     width: 500px;
     height: 150px;
@@ -42,13 +45,28 @@
     }
   }
   .loading-text-container {
-    width: 200px;
+    width: 400px;
     height: 100px;
-    // background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h2{
+      font-weight: 300;
+      font-size: 2rem;
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: -3px;
+    }
   }
   .loading-version-container {
     width: 200px;
     height: 100px;
-    // background-color: red;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 2rem ;
+    padding-right: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 }

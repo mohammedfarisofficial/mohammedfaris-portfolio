@@ -1,5 +1,5 @@
 import "./style.scss";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef, memo, useEffect, useState } from "react";
 const Loading = ({ time }) => {
   const progressRef = useRef(null);
@@ -27,7 +27,7 @@ const Loading = ({ time }) => {
     >
       <div className="loading-container">
         <div className="loading-text">
-          <p>{progress}</p>
+          <p>Loading {progress} %</p>
         </div>
         <motion.div
           ref={progressRef}
@@ -35,8 +35,12 @@ const Loading = ({ time }) => {
           className="loading-progress"
         ></motion.div>
       </div>
-      <div className="loading-text-container"></div>
-      <div className="loading-version-container"></div>
+      <div className="loading-text-container">
+        <motion.h2 animate={{ y : 0 }} initial={{ y: 40}} transition={{ duration: 1 }}>You are beautiful.</motion.h2>
+      </div>
+      <div className="loading-version-container">
+        <p>v 1.0.0</p>
+      </div>
     </motion.div>
   );
 };

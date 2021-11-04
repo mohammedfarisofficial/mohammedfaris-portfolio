@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Loading from "../Loading/Loading";
 // import { CustomCursor } from "../../CustomCursor/index.js";
 const LayoutInner = ({ children, finishLoading, time }) => {

@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 // import Layout from "./components/Layout/Layout";
 import Layout2 from "./components/Layout/Layout2";
 import { Route, Switch } from "react-router-dom";
@@ -14,13 +13,6 @@ import CustomCursor from "./CustomCursor";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  // loading
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
   return (
     <Switch>
       <>

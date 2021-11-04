@@ -11,7 +11,6 @@ import "intersection-observer";
 import ViewportObserver from "viewport-observer";
 
 import Splider from "../../Splide/Splider";
-import { Height } from "@material-ui/icons";
 
 const Home = () => {
   //reveal state
