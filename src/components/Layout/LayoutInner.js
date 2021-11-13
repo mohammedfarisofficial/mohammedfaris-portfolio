@@ -13,11 +13,9 @@ const LayoutInner = ({ children, finishLoading, time }) => {
           <div
             
           >
-            {/* <CustomCursor/> */}
             <div>
               <main>{children}</main>
             </div>
-            {/* <Footer /> */}
           </div>
         </AnimatePresence>
       )}

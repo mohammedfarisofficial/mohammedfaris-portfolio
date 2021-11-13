@@ -87,6 +87,7 @@ const Layout = ({ children }) => {
         ref={scrollContainer}
         className="smooth-scroll"
       >
+        <button onClick={setBodyHeight}>here u go</button>
         <LayoutInner time={loadingTime} children={children} finishLoading={finishLoading} />    
       </div>
     </motion.div>
