@@ -45,4 +45,4 @@ const Loading = ({ time }) => {
   );
 };
 
-export default memo(Loading);
+export default Loading;

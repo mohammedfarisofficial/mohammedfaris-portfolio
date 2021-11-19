@@ -64,9 +64,10 @@ const Layout = ({ children }) => {
     //Assign skew and smooth scrolling to the scroll container
     setState({ scroll: data.rounded, skew: skew });
     //loop vai raf
-    // requestAnimationFrame(() => skewScrolling());
+    requestAnimationFrame(() => skewScrolling());
   };
   let loadingTime = 3000
+  // console.log('rerendering');
   useEffect(() => {
     setTimeout(() => {
       setFinishLoading(false);
@@ -87,8 +88,8 @@ const Layout = ({ children }) => {
         ref={scrollContainer}
         className="smooth-scroll"
       >
-        <button onClick={setBodyHeight}>here u go</button>
         <LayoutInner time={loadingTime} children={children} finishLoading={finishLoading} />    
+        {/* {children} */}
       </div>
     </motion.div>
   );

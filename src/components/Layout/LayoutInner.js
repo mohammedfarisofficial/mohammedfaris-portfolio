@@ -1,7 +1,9 @@
+import { memo } from 'react'
 import { AnimatePresence } from "framer-motion";
 import Loading from "../Loading/Loading";
 // import { CustomCursor } from "../../CustomCursor/index.js";
 const LayoutInner = ({ children, finishLoading, time }) => {
+  console.log('child render');
   return (
     <>
       {finishLoading ? (
@@ -13,9 +15,11 @@ const LayoutInner = ({ children, finishLoading, time }) => {
           <div
             
           >
+            {/* <CustomCursor/> */}
             <div>
               <main>{children}</main>
             </div>
+            {/* <Footer /> */}
           </div>
         </AnimatePresence>
       )}
@@ -23,4 +27,4 @@ const LayoutInner = ({ children, finishLoading, time }) => {
   );
 };
 
-export default LayoutInner;
+export default memo(LayoutInner);
