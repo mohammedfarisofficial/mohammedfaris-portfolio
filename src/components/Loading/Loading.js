@@ -1,6 +1,6 @@
 import "./style.scss";
 import { motion } from "framer-motion";
-import { useRef, memo, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 const Loading = ({ time }) => {
   const progressRef = useRef(null);
   const [progress, setProgress] = useState(0);

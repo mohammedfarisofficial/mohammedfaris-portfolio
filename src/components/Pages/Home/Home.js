@@ -34,18 +34,6 @@ const Home = () => {
       skewY: 2,
     },
   };
-  const imageMotion = {
-    show: (delay) => ({
-      filter:["blur(50px)","blur(30px)","blur(10px)","blur(0"],
-      transition: {
-        duration: 1,
-        delay: delay * 0.2,
-      },
-    }),
-    hide: {
-      filter:"blur(50px)"
-    },
-  };
   return (
     <div className="home-wrapper">
       <div className="home-hero">
@@ -122,21 +110,13 @@ const Home = () => {
       </div>
       <div className="home-gallery">
         <div className="item item1">
-          <motion.img
-            variants={imageMotion}
-            animate={gallery ? "show" : "hide"}
-            initial="hide"
-            custom="2"
+          <img
             src={image2}
             alt="myself"
           />
         </div>
         <div className="item item2">
-          <motion.img
-            variants={imageMotion}
-            animate={gallery ? "show" : "hide"}
-            initial="hide"
-            custom="3"
+          <img
             src={image3}
             alt="for caption cover"
           />
