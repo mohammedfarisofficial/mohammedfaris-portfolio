@@ -13,11 +13,6 @@ const Loading = ({ time }) => {
       }
     }, time / 100);
   }, [progress]);
-
-  useEffect(() => {
-    console.log("progress", progress);
-    console.log(window.innerHeight / 2);
-  }, [progress]);
   return (
     <motion.div
       className="loading-wrapper"

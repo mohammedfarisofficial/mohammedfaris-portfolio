@@ -14,8 +14,8 @@ import Splider from "../../Splide/Splider";
 
 const Home = () => {
   //reveal state
-  const [ gallery , setGallery ] = useState(false)
-  const [ experi , setExperi] = useState(false)
+  const [gallery, setGallery] = useState(false);
+  const [experi, setExperi] = useState(false);
 
   // framer motion
   const HeroText = {
@@ -32,6 +32,17 @@ const Home = () => {
       opacity: 0,
       y: 40,
       skewY: 2,
+    },
+  };
+  const HeroImage = {
+    show: {
+      scale: 1,
+      transition : {
+        duration : 1.3
+      }
+    },
+    hide: {
+      scale: 0.9,
     },
   };
   return (
@@ -109,18 +120,25 @@ const Home = () => {
         </motion.div>
       </div>
       <div className="home-gallery">
-        <div className="item item1">
-          <img
+        <motion.div className="item item1">
+          <motion.img
+            src={image3}
+            variants={HeroImage}
+            animate={gallery ? "show" : "hide"}
+            initial="hide"
             src={image2}
             alt="myself"
           />
-        </div>
-        <div className="item item2">
-          <img
+        </motion.div>
+        <motion.div className="item item2">
+          <motion.img
             src={image3}
+            variants={HeroImage}
+            animate={gallery ? "show" : "hide"}
+            initial="hide"
             alt="for caption cover"
           />
-        </div>
+        </motion.div>
         <div className="item item3">
           <ViewportObserver onEnter={() => setGallery(true)}>
             <motion.p>
@@ -130,7 +148,7 @@ const Home = () => {
                 initial="hide"
                 custom="1"
               >
-                hey there. my name is arlind.i am a munich-based developer.i
+                Hey there. my name is Mohammed Faris.i am an indian based developer.i
                 seek to create{" "}
               </motion.div>
               <motion.div
@@ -191,9 +209,7 @@ const Home = () => {
         </div>
       </div>
       <div className="home-featured">
-        <ViewportObserver
-          onEnter={() => setExperi(true)}
-        >
+        <ViewportObserver onEnter={() => setExperi(true)}>
           <div className="featured-title">
             <motion.h2
               variants={HeroText}
@@ -215,7 +231,7 @@ const Home = () => {
           </div>
         </ViewportObserver>
         {/* <Slider /> */}
-      <Splider/>
+        <Splider />
       </div>
     </div>
   );
