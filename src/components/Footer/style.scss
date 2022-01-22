@@ -36,6 +36,11 @@
     display: flex;
     h3 {
      @include footerSocial;
+     
+    }
+    .resume a{
+      text-decoration: none;
+      color: $black;
     }
   }
   .footer-location {

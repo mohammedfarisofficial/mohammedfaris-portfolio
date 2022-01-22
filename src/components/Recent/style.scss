@@ -1,0 +1,120 @@
+@import "../../styles/styleData.scss";
+@import "../../styles//commonStyle.scss";
+.recent-works-wrapper {
+  width: 100%;
+  height: 50vh;
+  .recent-works-inner {
+    display: flex;
+    width: 100%;
+    height: 90%;
+    .col {
+      width: 33.333%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      background-color: red;
+      &:hover .botton-inner {
+        background-color: $white !important ;
+      }
+      &:hover #right-icon {
+        color: $black !important ;
+      }
+      @media (max-width: $tablet) {
+        height: 33.333%;
+        width: 100%;
+      }
+      .recent-text-container {
+        position: absolute;
+        width: 100%;
+        height: 40%;
+        z-index: 99;
+        bottom: 0;
+        display: flex;
+        align-items: space-between;
+        justify-content: center;
+        padding-left: 20%;
+        @include CommonPadding;
+        .text-container {
+          width: 100%;
+          // background-color: yellow;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          p {
+            color: $white;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 10px;
+            letter-spacing: 1px;
+          }
+          h3 {
+            color: $white;
+            font-weight: 500;
+          }
+        }
+        .botton-container {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          // background-color: red;
+          .botton-inner {
+            transition: 0.5s all ease-in-out;
+            z-index: 102;
+            background-color: rgba(255, 255, 255, 0.185);
+            // right: 20%;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            #right-icon {
+              transition: color 0.5s ease-in-out;
+              color: #fff;
+              width: 10px;
+              height: 10px;
+            }
+          }
+        }
+      }
+      .overlay {
+        position: absolute;
+        // opacity: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 8;
+        // background: rgb(246, 222, 235);
+        // transition: all .5s ease-in-out;
+        background: linear-gradient(
+          222deg,
+          rgba(246, 222, 235, 0) 0%,
+          rgba(0, 0, 0, 0.767) 81%
+        );
+      }
+      .recent-image-container{
+        background-color: red;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 7;
+        img {
+          // display: none;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          background-repeat: no-repeat;
+          object-position: center;
+        }
+      }
+    }
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+  @media (max-width: $tablet) {
+    height: 200vh;
+  }
+}

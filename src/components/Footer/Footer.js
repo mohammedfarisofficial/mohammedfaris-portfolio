@@ -14,7 +14,9 @@ const Footer = () => {
                     </h4>
                </div>
                <div className="footer-social">
-                    <h3>Resume</h3>
+                    <h3 className='resume'>
+                         <a download href="https://drive.google.com/file/d/1KjJNBnagE77VJtUzcGmPY25By1LrtKpa/view?usp=sharing">Resume</a>
+                    </h3>
                     <h3>LinkedIn</h3>
                     <h3>Twitter</h3>
                </div>

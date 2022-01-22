@@ -2,13 +2,13 @@
 @import "../../../styles/styleData.scss";
 .home-wrapper {
   width: 100%;
-  height: 300vh;
-  @media (max-width: $smallTablet) {
-    height: 280vh;
-  }
-  @media (max-width: $bigPhone) {
-    height: 240vh;
-  }
+  min-height: 300vh;
+  // @media (max-width: $smallTablet) {
+  //   height: 280vh;
+  // }
+  // @media (max-width: $bigPhone) {
+  //   height: 240vh;
+  // }
   background-color: #fff;
   .home-hero {
     width: 100%;
@@ -146,35 +146,64 @@
   }
   .home-featured {
     width: 100%;
-    height: 100vh;
-    @include CommonPadding;
+    min-height: 100vh;
+    
     .featured-title {
       width: 100%;
-      // background-color: red;
+      @include CommonPadding;
       height: 40vh;
-      padding-top: 8rem;
-      h2 {
-        font-weight: 500;
-        font-size: 24px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      flex-direction: column;
+      position: relative;
+      &::after{
+        content: 'SEE MORE';
+        position: absolute;
+        left: 0;
+        top:30%;
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        @include CommonPadding;
         @media (max-width: $tablet) {
-          font-size: 19px;
+          font-size: 8px;
         }
         @media (max-width: $bigPhone) {
-          font-size: 13px;
+          font-size: 5px;
         }
       }
-      p {
-        width: 20%;
-        @include description;
+      h2 {
+        font-weight: 400;
+        font-size: 35px;
+        letter-spacing: -1px;
+        margin-bottom: -12px ;
+        color: black;
         @media (max-width: $tablet) {
-          width: 30%;
+          font-size: 24px;
         }
         @media (max-width: $bigPhone) {
-          width: 40%;
+          font-size: 18px;
         }
-        @media (max-width: $phone) {
-          width: 50%;
+      }
+      h3{
+        font-weight: 200;
+        font-size: 35px;
+        letter-spacing: -1px;
+        color: $black;
+        padding-bottom: 2rem;
+        @media (max-width : $tablet) {
+          font-size: 25px;
         }
+        @media (max-width: $tablet) {
+          font-size: 20px;
+        }
+        // @media (max-width: $bigPhone) {
+        //   width: 40%;
+        // }
+        // @media (max-width: $phone) {
+        //   width: 50%;
+        // }
       }
     }
   }

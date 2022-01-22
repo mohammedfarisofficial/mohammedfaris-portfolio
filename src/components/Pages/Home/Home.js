@@ -4,13 +4,12 @@ import image from "../../../assets/home-images/1.jpg";
 import image2 from "../../../assets/home-images/2.jpg";
 import image3 from "../../../assets/home-images/3.jpg";
 
-// import Slider from "../../Slider/Slider";
+import Recent from '../../Recent/Recent'
 import { motion } from "framer-motion";
 // observers
 import "intersection-observer";
 import ViewportObserver from "viewport-observer";
 
-import Splider from "../../Splide/Splider";
 
 const Home = () => {
   //reveal state
@@ -24,7 +23,7 @@ const Home = () => {
       skewY: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 1,
         delay: delay * 0.2,
       },
     }),
@@ -37,12 +36,14 @@ const Home = () => {
   const HeroImage = {
     show: {
       scale: 1,
-      transition : {
-        duration : 1.3
-      }
+      opacity:1,
+      transition: {
+        duration: 1.3,
+      },
     },
     hide: {
       scale: 0.9,
+      opacity:0
     },
   };
   return (
@@ -148,8 +149,8 @@ const Home = () => {
                 initial="hide"
                 custom="1"
               >
-                Hey there. my name is Mohammed Faris.i am an indian based developer.i
-                seek to create{" "}
+                Hey there. my name is Mohammed Faris.i am an indian based
+                developer.i seek to create{" "}
               </motion.div>
               <motion.div
                 variants={HeroText}
@@ -215,23 +216,21 @@ const Home = () => {
               variants={HeroText}
               animate={experi ? "show" : "hide"}
               initial="hide"
-              custom="1"
+              custom="3"
             >
-              RECENT EXPERIMENTS
+              Discover More
             </motion.h2>
-            <motion.p
+            <motion.h3
               variants={HeroText}
               animate={experi ? "show" : "hide"}
               initial="hide"
-              custom="1.4"
+              custom="3.5"
             >
-              I 've been experimenting with my creative web for over a year now,
-              Still continues.
-            </motion.p>
+              recent Experiments
+            </motion.h3>
           </div>
         </ViewportObserver>
-        {/* <Slider /> */}
-        <Splider />
+        <Recent/>
       </div>
     </div>
   );
