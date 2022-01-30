@@ -1,19 +1,14 @@
 import { useState } from "react";
 import "./style.scss";
-import image from "../../../assets/home-images/1.jpg";
-import image2 from "../../../assets/home-images/2.jpg";
-import image3 from "../../../assets/home-images/3.jpg";
-
-import Recent from '../../Recent/Recent'
+import Recent from "../../Recent/Recent";
 import { motion } from "framer-motion";
 // observers
 import "intersection-observer";
 import ViewportObserver from "viewport-observer";
-
-
+//data
+import image from '../../../assets/home-images/4.jpg'
 const Home = () => {
   //reveal state
-  const [gallery, setGallery] = useState(false);
   const [experi, setExperi] = useState(false);
 
   // framer motion
@@ -33,180 +28,16 @@ const Home = () => {
       skewY: 2,
     },
   };
-  const HeroImage = {
-    show: {
-      scale: 1,
-      opacity:1,
-      transition: {
-        duration: 1.3,
-      },
-    },
-    hide: {
-      scale: 0.9,
-      opacity:0
-    },
-  };
   return (
     <div className="home-wrapper">
       <div className="home-hero">
-        <div className="hero-heading">
-          <motion.h2>
-            <motion.div
-              variants={HeroText}
-              animate="show"
-              initial="hide"
-              custom="1"
-            >
-              I’m Mohammed Faris ,a creative
-            </motion.div>
-            <motion.div
-              variants={HeroText}
-              animate="show"
-              initial="hide"
-              custom="1.4"
-            >
-              developer based in india.Specialized on
-            </motion.div>
-            <motion.div
-              variants={HeroText}
-              animate="show"
-              initial="hide"
-              custom="1.8"
-            >
-              creating awesome experiences on
-            </motion.div>
-            <motion.div
-              variants={HeroText}
-              animate="show"
-              initial="hide"
-              custom="2.2"
-            >
-              web and mobile devices.
-            </motion.div>
-          </motion.h2>
+        <div className="hero-text-container">
+          <h3>Hey there.My name is <br/><span>Mohammd Faris</span>.I am a <span>IN</span><br/> based developer.I seek to create<br/> projects that break the limits <br/>between technology and <span>visual<br/> design</span> by creating <span>aesthetic,<br/> memorable</span> and <span>unique digital</span><br/> experiences.</h3>
+          <h3>To nourish my passion and <br/>create projects that engage and<br/> <span>resonate</span> with the <span>audience</span>, I <br/>pair <span>together</span> with <span>remarkable<br/> designers</span>.</h3>
+          <h3>My desire to <span>expose</span> the <span>artistic</span><br/> and <span>creative</span> side of the <span>industry</span><br/> pushes my enormous passion for<br/> <span>experimenting</span> with <br/><span>mathematics, coding</span>, &#38; <span>ui</span>.</h3>
         </div>
-        <div className="hero-subheading">
-          <p>
-            <motion.div
-              variants={HeroText}
-              animate="show"
-              initial="hide"
-              custom="2.6"
-            >
-              I am specialized in designing meaningfull and intuitives
-              interfaces for web and mobile devices,
-            </motion.div>
-            <motion.div
-              variants={HeroText}
-              animate="show"
-              initial="hide"
-              custom="3"
-            >
-              I previously worked in several freelancing works and i am now
-              looking for my next adventure.
-            </motion.div>
-          </p>
-        </div>
-        <motion.div
-          variants={HeroText}
-          animate="show"
-          initial="hide"
-          custom="1"
-          className="hero-available"
-        >
-          <div className="beat-container">
-            <img src={image} alt="mine" />
-          </div>
-          <h3>Currently available for freelance or part-time work</h3>
-        </motion.div>
-      </div>
-      <div className="home-gallery">
-        <motion.div className="item item1">
-          <motion.img
-            src={image3}
-            variants={HeroImage}
-            animate={gallery ? "show" : "hide"}
-            initial="hide"
-            src={image2}
-            alt="myself"
-          />
-        </motion.div>
-        <motion.div className="item item2">
-          <motion.img
-            src={image3}
-            variants={HeroImage}
-            animate={gallery ? "show" : "hide"}
-            initial="hide"
-            alt="for caption cover"
-          />
-        </motion.div>
-        <div className="item item3">
-          <ViewportObserver onEnter={() => setGallery(true)}>
-            <motion.p>
-              <motion.div
-                variants={HeroText}
-                animate={gallery ? "show" : "hide"}
-                initial="hide"
-                custom="1"
-              >
-                Hey there. my name is Mohammed Faris.i am an indian based
-                developer.i seek to create{" "}
-              </motion.div>
-              <motion.div
-                variants={HeroText}
-                animate={gallery ? "show" : "hide"}
-                initial="hide"
-                custom="1.4"
-              >
-                projects that break the limits between technology and visual
-                design by creating{" "}
-              </motion.div>
-              <motion.div
-                variants={HeroText}
-                animate={gallery ? "show" : "hide"}
-                initial="hide"
-                custom="1.8"
-              >
-                aesthetic, memorable and unique digital experiences.to nourish
-                my passion and
-              </motion.div>
-              <motion.div
-                variants={HeroText}
-                animate={gallery ? "show" : "hide"}
-                initial="hide"
-                custom="2.2"
-              >
-                create projects that engage and resonate with the audience, i
-                pair together with
-              </motion.div>
-              <motion.div
-                variants={HeroText}
-                animate={gallery ? "show" : "hide"}
-                initial="hide"
-                custom="2.6"
-              >
-                remarkable designers. my desire to expose the artistic and
-                creative side of the{" "}
-              </motion.div>
-              <motion.div
-                variants={HeroText}
-                animate={gallery ? "show" : "hide"}
-                initial="hide"
-                custom="3"
-              >
-                industry pushes my enormous passion for experimenting with
-                mathematics,{" "}
-              </motion.div>
-              <motion.div
-                variants={HeroText}
-                animate={gallery ? "show" : "hide"}
-                initial="hide"
-                custom="3.4"
-              >
-                coding, and ui.
-              </motion.div>
-            </motion.p>
-          </ViewportObserver>
+        <div className="hero-image-container">
+          <img src={image}  />
         </div>
       </div>
       <div className="home-featured">
@@ -230,7 +61,7 @@ const Home = () => {
             </motion.h3>
           </div>
         </ViewportObserver>
-        <Recent/>
+        <Recent />
       </div>
     </div>
   );

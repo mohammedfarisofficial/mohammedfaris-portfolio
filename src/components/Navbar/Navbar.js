@@ -19,7 +19,7 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if(location.pathname === '/gigi-hadid'){
+    if(location.pathname === '/gigi-hadid' || location.pathname === '/'){
       setLight(false)
     }else{
       setLight(true)
@@ -151,9 +151,9 @@ const Navbar = () => {
 
   return (
     <div className="pro-navbar">
-      <Link to="/ecommerce" style={{ textDecoration: "none", color: "black" }}>
+      <Link to="/" style={{ textDecoration: "none", color: "black" }}>
         <motion.div variants={animationMenuVariants} initial='hide' animate='show' whileHover='hover' className="pro-back">
-           <h3 style={{ color : light ? 'black' : 'white'}} >.FM</h3>
+           <h3 style={{ color : light ? 'black' : 'white'}} >Fariz.</h3>
         </motion.div>
       </Link>
       <motion.div variants={animationMenuVariants} initial='hide' animate='show' className="pro-hanburger" onClick={handleOpenNav}>

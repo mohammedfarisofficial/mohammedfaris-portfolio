@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import recentData from "./data";
 const Recent = () => {
   const [play, setPlay] = useState(false);
-  console.log(recentData);
   const colImg = {
     show: {
       scale: 1,
@@ -39,8 +38,20 @@ const Recent = () => {
               </div>
               <div className="recent-text-container">
                 <div className="text-container">
-                  <p>{item.subtitle}</p>
-                  <h3>{item.title}</h3>
+                  <motion.p
+                    animate={{ x: play ? 0 : 50, opacity: play ? 1 : 0 }}
+
+                  >
+                    {item.subtitle}
+                  </motion.p>
+                  <motion.h3
+                    animate={{
+                      x: play ? 0 : 50,
+                      opacity: play ? 1 : 0,
+                    }}
+                  >
+                    {item.title}
+                  </motion.h3>
                 </div>
                 <div className="botton-container">
                   <div className="botton-inner">

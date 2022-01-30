@@ -1,19 +1,21 @@
-import img from '../../assets/home-images/1.jpg'
+import img from '../../assets/recent-experiments/2.png'
+import img2 from '../../assets/recent-experiments/4.png'
+import img3 from '../../assets/recent-experiments/1.png'
 const recentData = [
      {
-          title : 'hellow',
-          subtitle : 'this is sub title',
+          title : 'Scroll Magic',
+          subtitle : 'Three.js',
           img : img
      },
      {
-          title : 'hellow',
-          subtitle : 'this is sub title',
-          img : img
+          title : 'Fabpro',
+          subtitle : 'fabpro navigation',
+          img : img2
      },
      {
-          title : 'hellow',
-          subtitle : 'this is sub title',
-          img : img
+          title : 'Gigi Hadid',
+          subtitle : 'A portfolio',
+          img : img3
      },
 ]
 export default recentData

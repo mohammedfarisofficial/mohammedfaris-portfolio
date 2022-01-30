@@ -14,7 +14,9 @@
 @mixin CommonPadding {
   padding: 0 6rem;
   @media (max-width: $smallTablet) {
-    padding: 0 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
   }
 }
 @mixin CommonPadding2 {
@@ -63,9 +65,8 @@
   }
 }
 @mixin navigationText {
-  font-weight: 300;
-  font-size: 0.9rem;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.3rem;
   @media (max-width: $phone) {
     font-size: 0.8rem;
   }
