@@ -159,7 +159,7 @@ const Home = () => {
             </motion.h3>
           </div>
         </ViewportObserver>
-        <Recent />
+        <Recent dark={true} />
       </div>
     </div>
   );

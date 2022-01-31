@@ -7,7 +7,6 @@
   .home-hero {
     width: 100%;
     height: 180vh;
-    // background-color: lightgray;
     display: flex;
     @media (max-width: $smallLaptop) {
       height: 200vh;
@@ -26,7 +25,6 @@
       }
     }
     .hero-text-container {
-      // background-color: lightblue;
       padding-top: 20vh;
       @media (max-width: $smallTablet) {
         height: 180vh;
@@ -38,7 +36,6 @@
         height: 240vh;
       }
       div{
-        // background-color: yellow;
         margin : 10px 0;
         overflow-y: hidden;
         h3 {
@@ -57,16 +54,14 @@
       }
     }
     .hero-image-container {
-      // background-color: lightgreen;
       padding-top: 20vh;
       div {
         position: relative;
         .find-me {
           position: absolute;
-          // background-color: green;
           bottom: -100px;
           left: 0;
-          z-index: 99;
+          z-index: 5;
           width: 250px;
           height: 50px;
           overflow-y: hidden;

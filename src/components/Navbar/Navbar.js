@@ -147,7 +147,7 @@ const Navbar = () => {
     {
       id: "03",
       title: "Building 👨‍💻",
-      path: "",
+      path: "/",
       video: "gigi-hadid.mp4",
     },
   ];
@@ -247,20 +247,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="nav-upper">
-          <Link
-            onClick={handleCloseNav}
-            to="/"
-            style={{ textDecoration: "none", color: "black" }}
-          >
             <motion.div
               variants={navigationButtonVarients}
               animate="show"
               initial="hide"
               className="pro-back slide"
             >
-              <HomeOutlinedIcon className="back-icon" /> <h3>home</h3>
+              <h3>Case Studies</h3>
             </motion.div>
-          </Link>
           <motion.div
             variants={navigationButtonVarients}
             animate="show"

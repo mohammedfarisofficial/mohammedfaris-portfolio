@@ -1,5 +1,4 @@
-// import Layout from "./components/Layout/Layout";
-import Layout2 from "./components/Layout/Layout2";
+import Layout from "./components/Layout/Layout";
 import { Route, Switch } from "react-router-dom";
 
 import GigiHadid from "./components/Pages/Gigi-hadid/GigiHadid";
@@ -17,12 +16,12 @@ function App() {
     <Switch>
       <>
       <CustomCursor />
-      <Layout2>
+      <Layout>
         <Navbar />
         <Route exact path="/" component={Home} />
         <Route exact path="/gigi-hadid" component={GigiHadid} />
         <Route exact path="/ecommerce" component={DjangoEcommerce} />
-      </Layout2>
+      </Layout>
       </>
       {/* <Route component={PageNotFound} /> */}
     </Switch>

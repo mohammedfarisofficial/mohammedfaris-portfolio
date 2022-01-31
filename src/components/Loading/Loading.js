@@ -34,7 +34,7 @@ const Loading = ({ time }) => {
         <motion.h2 animate={{ y : 0 }} initial={{ y: 40}} transition={{ duration: 1 }}>You are beautiful.</motion.h2>
       </div>
       <div className="loading-version-container">
-        <p>v 1.0.0</p>
+        <p>v 1.5.0</p>
       </div>
     </motion.div>
   );

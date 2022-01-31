@@ -28,7 +28,7 @@ const GigiHadid = () => {
   //framer motion 
 
   //hero text
-  const gigiText = ["# model", "gigi hadid's", "porfolio"];
+  const gigiText = ["# model", "gigi hadid's", "portfolio"];
   const HeroTextVariants = {
     show: (index) => ({
       y: 0,

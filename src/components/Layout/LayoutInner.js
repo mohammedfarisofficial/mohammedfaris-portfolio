@@ -4,7 +4,6 @@ import Loading from "../Loading/Loading";
 // import { CustomCursor } from "../../CustomCursor/index.js";
 import Footer from '../Footer/Footer'
 const LayoutInner = ({ children, finishLoading, time }) => {
-  finishLoading = false
   return (
     <>
       {finishLoading ? (
