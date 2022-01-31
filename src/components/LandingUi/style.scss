@@ -22,6 +22,7 @@
           justify-content: center;
           h4{
                @include description;
+               text-transform: uppercase;
           }
      }
      .ui-tech{

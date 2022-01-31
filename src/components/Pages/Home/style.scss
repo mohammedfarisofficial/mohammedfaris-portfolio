@@ -9,11 +9,11 @@
     height: 180vh;
     // background-color: lightgray;
     display: flex;
-    @media ( max-width : $smallLaptop){
+    @media (max-width: $smallLaptop) {
       height: 200vh;
     }
-    @media ( max-width : $smallTablet){
-      flex-direction: column;;
+    @media (max-width: $smallTablet) {
+      flex-direction: column;
       height: 300vh;
     }
     .hero-image-container,
@@ -21,40 +21,79 @@
       width: 50%;
       height: 100%;
       @include CommonPadding;
-      @media ( max-width : $smallTablet){
+      @media (max-width: $smallTablet) {
         width: 100%;
       }
     }
     .hero-text-container {
       // background-color: lightblue;
       padding-top: 20vh;
-      @media ( max-width : $smallTablet){
+      @media (max-width: $smallTablet) {
         height: 180vh;
       }
-      @media ( max-width : $bigPhone){
+      @media (max-width: $bigPhone) {
         height: 230vh;
       }
-      @media ( max-width : $phone){
+      @media (max-width: $phone) {
         height: 240vh;
       }
-      h3{
-        font-size: 28px;
-        font-weight:400;
-        color: $white;
-        span{
-          font-size: 30;
-          font-weight: 500;
-        }
-        &:nth-child(2){
-          margin-top:2rem ;
+      div{
+        // background-color: yellow;
+        margin : 10px 0;
+        overflow-y: hidden;
+        h3 {
+          font-size: 28px;
+          font-weight: 400;
+          color: $white;
+          transform: translateY(50px);
+          span {
+            font-size: 30;
+            font-weight: 500;
+          }
+          &:nth-child(2) {
+            margin-top: 2rem;
+          }
         }
       }
     }
     .hero-image-container {
       // background-color: lightgreen;
       padding-top: 20vh;
-      img{
-        width: 100%;
+      div {
+        position: relative;
+        .find-me {
+          position: absolute;
+          // background-color: green;
+          bottom: -100px;
+          left: 0;
+          z-index: 99;
+          width: 250px;
+          height: 50px;
+          overflow-y: hidden;
+          h3{
+            color: $white;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 16px;
+            font-weight: 400;
+            transform: translateY(50px);
+            span{
+              color: $red;
+              font-weight: 800;
+            }
+            .find-me-icon{
+              width: 30px;
+              fill: $red;
+            }
+          }
+
+        }
+        img {
+          width: 100%;
+          position: relative;
+          
+        }
       }
     }
   }

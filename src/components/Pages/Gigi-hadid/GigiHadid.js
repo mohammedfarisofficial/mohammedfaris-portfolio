@@ -11,7 +11,7 @@ import image3 from '../../../assets/gigi-website/1.png'
 import image4 from '../../../assets/gigi-website/2.png'
 
 //icons for component
-// import figmaIcon from '../../../assets/icons/figma.svg'
+import { designData } from './data.js'
 
 //intersection observer
 import "intersection-observer";

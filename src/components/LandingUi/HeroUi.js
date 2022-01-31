@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState ,useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
 import "./style.scss";
 // import image from '../../assets/gigi-website/1.png'
 // import image2 from '../../assets/gigi-website/2.png'
@@ -6,30 +7,39 @@ import { motion } from "framer-motion";
 //intersection obr
 import ViewportObserver from "viewport-observer";
 
-// import figma from "../../assets/icons/figma.svg";
 import reactIcon from "../../assets/icons/react.svg";
 import gsapIcon from "../../assets/icons/gsap.svg";
 
+import {designListGigi,techList2Gigi,designListEcommerce ,techListEcommerce} from './data.js'
+
 const HeroUi = ({ design, desciption, image }) => {
+  const [ dataList,setDataList] = useState([])
+  const [ currentPage,setCurrentPage ] = useState('')
+  const location = useLocation()
+
+  useEffect(()=>{
+    if(location.pathname === '/gigi-hadid'){
+      setCurrentPage('gigi portfilio')
+      if(design){
+        setDataList(designListGigi)
+      }else{
+        setDataList(techList2Gigi)
+      }
+    }else if(location.pathname ==='/ecommerce'){
+      setCurrentPage('django ecommerce')
+      if(design){
+        setDataList(designListEcommerce)
+      }else{
+        setDataList(techListEcommerce)
+      }
+    }else{
+
+    }
+  },[location.pathname])
   //reveal
   const [ imgReveal,setImgReveal] = useState(false)
   const [ txtReveal,setTxtReveal] = useState(false)
-  //compoent data
-  //   const designList = [
-  //      'HELLO',
-  //      'HELLO',
-  //      'HELLO'
-  //    ]
-  const techList = [
-    {
-      name: "React.js",
-      icon: reactIcon,
-    },
-    {
-      name: "gsap",
-      icon: gsapIcon,
-    },
-  ];
+ 
 
   // framer motion
   const textReveal = {
@@ -62,7 +72,7 @@ const HeroUi = ({ design, desciption, image }) => {
       </div>
         </ViewportObserver>
       <div className="ui-image-text">
-        <motion.h4  variants={textReveal} animate={txtReveal ? 'show' : 'hide'}  initial='hide' custom={2} >UI DESIGN OF GIGI PORTFOLIO</motion.h4>
+        <motion.h4  variants={textReveal} animate={txtReveal ? 'show' : 'hide'}  initial='hide' custom={2} >UI DESIGN OF {currentPage}</motion.h4>
       </div>
       <ViewportObserver onEnter={()=> setTxtReveal(true)}>
       <div className="ui-tech">
@@ -72,7 +82,7 @@ const HeroUi = ({ design, desciption, image }) => {
           <motion.h3 variants={textReveal} animate={txtReveal ? 'show' : 'hide'} initial='hide' custom={'2'} >USED TECHNOLOGIES :</motion.h3>
         )}
 
-        {techList.map((item, key) => (
+        {dataList.map((item, key) => (
           <motion.div variants={textReveal} animate={txtReveal ? 'show' : 'hide'} initial='hide' custom={2 * (key+1)} key={key}>
             <img src={item.icon} alt="" />
             <h4>{item.name}</h4>

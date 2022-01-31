@@ -49,6 +49,7 @@
     span {
       background-color: $black;
       mix-blend-mode: difference;
+      border-radius: 20px;
       height: 4px;
       &:first-child {
         width: 3rem;

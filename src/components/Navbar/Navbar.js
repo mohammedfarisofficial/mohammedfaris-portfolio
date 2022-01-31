@@ -1,31 +1,33 @@
-import { useRef, useState , useMemo} from "react";
-import { Link , NavLink} from "react-router-dom";
-// import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
+import { useRef, useState, useMemo ,useEffect} from "react";
+import { Link, NavLink,useLocation } from "react-router-dom";
+import "./navbar.scss";
+
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
-import "./navbar.scss";
+
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
+import useWindowSize from "../../hooks/useWindowSize";
+
 import video1 from "../../assets/nav-videos/video1.mp4";
 import video2 from "../../assets/nav-videos/video2.mp4";
 import video3 from "../../assets/nav-videos/video3.mp4";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [ light, setLight ] = useState(false)
+  const [light, setLight] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const location = useLocation();
+  const size = useWindowSize();
 
   useEffect(() => {
-    if(location.pathname === '/gigi-hadid' || location.pathname === '/'){
-      setLight(false)
-    }else{
-      setLight(true)
+    if (location.pathname === "/gigi-hadid" || location.pathname === "/") {
+      setLight(false);
+    } else {
+      setLight(true);
     }
-    console.log(location.pathname);
-  }, [location.pathname,light])
+  }, [location.pathname, light]);
 
   const navSliderRef = useRef(null);
   const handleOpenNav = () => {
@@ -34,15 +36,18 @@ const Navbar = () => {
   const handleCloseNav = () => {
     setOpen(false);
   };
-  // enable and disenabel srolling 
-  const body = document.body
+  // enable and disenabel srolling
+  const body = document.body;
   const scrollY = body.style.top;
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+    window.addEventListener("scroll", () => {
+      document.documentElement.style.setProperty(
+        "--scroll-y",
+        `${window.scrollY}px`
+      );
     });
-  }, [])
+  }, []);
   //Framer motion
   // intersection observer with framer
   const { inView, ref } = useInView();
@@ -76,7 +81,7 @@ const Navbar = () => {
       },
     },
     hide: {
-      y: '2rem' ,
+      y: "2rem",
       opacity: 0,
     },
   };
@@ -84,34 +89,37 @@ const Navbar = () => {
     show: {
       opacity: 1,
       y: 0,
-      transition : {
-        duration: 0.8
-      }
+      transition: {
+        duration: 0.8,
+      },
     },
     hide: {
       opacity: 0,
-      y: '2rem',
+      y: "2rem",
     },
-    hover : {
-      x : 5
-    }
+    hover: {
+      x: 5,
+    },
   };
   //hide scroll bar
-  if ( inView ){
-    body.style.position = 'fixed';
-  }else{
+  if (inView) {
+    body.style.position = "fixed";
+  } else {
     const body = document.body;
-    body.style.position = '';
-    body.style.top = '';
-    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    body.style.position = "";
+    body.style.top = "";
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
   }
   //switch video
 
-  const videos = useMemo(() => ([
-    { id: 0, video: video1 },
-    { id: 1, video: video2 },
-    { id: 2, video: video3 },
-  ]),[]);
+  const videos = useMemo(
+    () => [
+      { id: 0, video: video1 },
+      { id: 1, video: video2 },
+      { id: 2, video: video3 },
+    ],
+    []
+  );
 
   const [current, setCurrent] = useState({
     id: 0,
@@ -121,7 +129,7 @@ const Navbar = () => {
   useEffect(() => {
     const currentVideo = videos.filter((video) => video.id === current.id);
     setCurrent({ id: currentVideo[0].id, video: currentVideo[0].video });
-  }, [current.id,videos]);
+  }, [current.id, videos]);
 
   const projectsRoutes = [
     {
@@ -149,19 +157,42 @@ const Navbar = () => {
     window.scrollTo(0, 0);
   }, [location.key]);
 
+  useEffect(()=>{
+    if(size.width <= 600){
+      setIsMobile(true)
+    }else{
+      setIsMobile(false)
+    }
+  },[size,isMobile])
+
   return (
     <div className="pro-navbar">
       <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-        <motion.div variants={animationMenuVariants} initial='hide' animate='show' whileHover='hover' className="pro-back">
-           <h3 style={{ color : light ? 'black' : 'white'}} >Fariz.</h3>
+        <motion.div
+          variants={animationMenuVariants}
+          initial="hide"
+          animate="show"
+          whileHover="hover"
+          className="pro-back"
+        >
+          <h3 style={{ color: light ? "black" : "white" }}>Fariz.</h3>
         </motion.div>
       </Link>
-      <motion.div variants={animationMenuVariants} initial='hide' animate='show' className="pro-hanburger" onClick={handleOpenNav}>
-        <span style={{ backgroundColor : light ? 'black' : 'white'}} ></span>
-        <span style={{ backgroundColor : light ? 'black' : 'white'}} ></span>
+      <motion.div
+        variants={animationMenuVariants}
+        initial="hide"
+        animate="show"
+        className="pro-hanburger"
+        onClick={handleOpenNav}
+      >
+        <span style={{ backgroundColor: light ? "black" : "white" }}></span>
+        <span style={{ backgroundColor: light ? "black" : "white" }}></span>
       </motion.div>
       <motion.div
-        animate={{ x: open ? 0 : "100%" , skewX : open ? [ 0,5, 10,5, 0] : [ 0, -5, -10,-5,  0] }}
+        animate={{
+          x: open ? 0 : "100%",
+          skewX: open ? [0, 5, 10, 5, 0] : [0, -5, -10, -5, 0],
+        }}
         initial={false}
         transition={{ duration: 0.8 }}
         ref={navSliderRef}
@@ -174,7 +205,7 @@ const Navbar = () => {
                 onClick={handleCloseNav}
                 key={index}
                 to={`/${route.path}`}
-                activeClassName='nav-active'
+                activeClassName="nav-active"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <li className="nav-route">
@@ -216,7 +247,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="nav-upper">
-          <Link onClick={handleCloseNav} to="/" style={{ textDecoration: "none", color: "black" }}>
+          <Link
+            onClick={handleCloseNav}
+            to="/"
+            style={{ textDecoration: "none", color: "black" }}
+          >
             <motion.div
               variants={navigationButtonVarients}
               animate="show"
@@ -241,24 +276,26 @@ const Navbar = () => {
           className="pro-video-reveal"
           animate={revealControl}
         ></motion.div>
-        <div className="pro-video">
-          <AnimatePresence exitBeforeEnter initial={false}>
-            <motion.video
-              key={current.id}
-              initial={{ opacity: 0 }}
-              exit={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              autoPlay
-              muted
-              loop
-              src={current.video}
-              type="video/mp4"
-            ></motion.video>
-          </AnimatePresence>
-          <AnimatePresence>
-            <div className="powerbutton"></div>
-          </AnimatePresence>
-        </div>
+        {!isMobile && (
+          <div className="pro-video">
+            <AnimatePresence exitBeforeEnter initial={false}>
+              <motion.video
+                key={current.id}
+                initial={{ opacity: 0 }}
+                exit={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                autoPlay
+                muted
+                loop
+                src={current.video}
+                type="video/mp4"
+              ></motion.video>
+            </AnimatePresence>
+            <AnimatePresence>
+              <div className="powerbutton"></div>
+            </AnimatePresence>
+          </div>
+        )}
       </motion.div>
     </div>
   );
