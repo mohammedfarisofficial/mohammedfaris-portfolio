@@ -16,12 +16,12 @@ function App() {
     <Switch>
       <>
       <CustomCursor />
-      <Layout>
+      {/* <Layout> */}
         <Navbar />
         <Route exact path="/" component={Home} />
         <Route exact path="/gigi-hadid" component={GigiHadid} />
         <Route exact path="/ecommerce" component={DjangoEcommerce} />
-      </Layout>
+      {/* </Layout> */}
       </>
       {/* <Route component={PageNotFound} /> */}
     </Switch>
