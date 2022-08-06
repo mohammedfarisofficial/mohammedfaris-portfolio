@@ -253,7 +253,7 @@ const Navbar = () => {
               initial="hide"
               className="pro-back slide"
             >
-              <h3>Case Studies</h3>
+              <h3>Projects</h3>
             </motion.div>
           <motion.div
             variants={navigationButtonVarients}

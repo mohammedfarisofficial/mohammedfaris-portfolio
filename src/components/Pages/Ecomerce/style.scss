@@ -25,6 +25,7 @@
       justify-content: flex-end;
      h3{
           @include boldUppercase;
+          text-transform: none;
      }
     }
   }

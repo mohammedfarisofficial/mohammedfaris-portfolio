@@ -17,12 +17,12 @@ const DjangoEcommerce = () => {
       <div className="ecommerce-landing">
         <div className="landing-heading">
           <h2>
-            <div>ECOMMERCE</div>
-            <div>WEB APP</div>
+            <div>Expense</div>
+            <div>Tracker</div>
           </h2>
         </div>
         <div className="landing-subheading">
-          <h3>DJANGO with REACT.JS</h3>
+          <h3>React Native with Firebase</h3>
         </div>
       </div>
       <div className="ecommerce-features">
