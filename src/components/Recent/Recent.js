@@ -34,7 +34,7 @@ const Recent = () => {
             >
               <div className="overlay"></div>
               <div className="recent-image-container">
-                <img src={item.img} />
+                <img src={item.img} alt="" />
               </div>
               <div className="recent-text-container">
                 <div className="text-container">

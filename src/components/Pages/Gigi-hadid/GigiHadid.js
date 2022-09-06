@@ -10,9 +10,6 @@ import image2 from "../../../assets/gig-hadid-images/image2.jpg";
 import image3 from '../../../assets/gigi-website/1.png'
 import image4 from '../../../assets/gigi-website/2.png'
 
-//icons for component
-import { designData } from './data.js'
-
 //intersection observer
 import "intersection-observer";
 import ViewportObserver from "viewport-observer";

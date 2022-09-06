@@ -3,7 +3,7 @@ import { Link, NavLink,useLocation } from "react-router-dom";
 import "./navbar.scss";
 
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
-import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
+// import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";

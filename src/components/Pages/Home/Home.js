@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import "./style.scss";
 import Recent from "../../Recent/Recent";
 import { motion } from "framer-motion";
@@ -134,7 +133,7 @@ const Home = () => {
                 </motion.h3>
               </ViewportObserver>
             </div>
-            <img src={image} />
+            <img src={image} alt="" />
           </div>
         </div>
       </div>

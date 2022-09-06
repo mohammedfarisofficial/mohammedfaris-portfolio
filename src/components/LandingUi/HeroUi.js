@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 //intersection obr
 import ViewportObserver from "viewport-observer";
 
-import reactIcon from "../../assets/icons/react.svg";
-import gsapIcon from "../../assets/icons/gsap.svg";
+// import reactIcon from "../../assets/icons/react.svg";
+// import gsapIcon from "../../assets/icons/gsap.svg";
 
 import {designListGigi,techList2Gigi,designListEcommerce ,techListEcommerce} from './data.js'
 
@@ -35,7 +35,7 @@ const HeroUi = ({ design, desciption, image }) => {
     }else{
 
     }
-  },[location.pathname])
+  },[location.pathname,design])
   //reveal
   const [ imgReveal,setImgReveal] = useState(false)
   const [ txtReveal,setTxtReveal] = useState(false)
