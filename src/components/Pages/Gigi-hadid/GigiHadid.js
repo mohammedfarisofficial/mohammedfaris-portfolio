@@ -150,8 +150,8 @@ const GigiHadid = () => {
         <Title/>
         <HeroUi image={image3} design={true} />
         <HeroUi image={image4}/>
-        <ViewSite location='goto website'/>
-        <ViewSite location='check github'/>
+        <ViewSite location='goto website' exLink="https://mohammedfarisofficial.github.io/gigi-hadid/#/" />
+        <ViewSite location='check github' exLink="https://github.com/mohammedfarisofficial/gigi-hadid"/>
       </div>
        </ViewportObserver>       
     </div>

@@ -5,17 +5,20 @@ const recentData = [
      {
           title : 'Scroll Magic',
           subtitle : 'Three.js',
-          img : img
+          img : img,
+          exLink: "https://scroll-magic-with-threejs.vercel.app/",
      },
      {
           title : 'Fabpro',
           subtitle : 'fabpro navigation',
-          img : img2
+          img : img2,
+          exLink: "https://fabpro.vercel.app/",
      },
      {
           title : 'Gigi Hadid',
           subtitle : 'A portfolio',
-          img : img3
+          img : img3,
+          exLink: "https://github.com/mohammedfarisofficial/gigi-hadid",
      },
 ]
 export default recentData

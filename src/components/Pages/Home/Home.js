@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./style.scss";
 import Recent from "../../Recent/Recent";
 import { motion } from "framer-motion";
+import { ExternalLink } from "react-external-link";
 // observers
 import "intersection-observer";
 import ViewportObserver from "viewport-observer";
@@ -15,10 +16,6 @@ const Home = () => {
   const [line1, setLine1] = useState(false);
   const [line2, setLine2] = useState(false);
   const [line3, setLine3] = useState(false);
-
-  useEffect(() => {
-    console.log(find);
-  }, [find]);
 
   // framer motion
   const HeroText = {
@@ -128,8 +125,11 @@ const Home = () => {
                   variants={hideToShow}
                   animate={find ? "show" : "hide"}
                 >
-                  Find me on <span>Github </span>{" "}
-                  <RightIcon className="find-me-icon" />
+                    Find me on
+                  <ExternalLink style={{ textDecoration: "none" }} href="https://github.com/mohammedfarisofficial" >
+                     <span >Github</span>
+                  </ExternalLink>
+                    <RightIcon className="find-me-icon" />
                 </motion.h3>
               </ViewportObserver>
             </div>

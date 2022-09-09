@@ -8,16 +8,18 @@ import "./styles/globalStyle.scss";
 import CustomCursor from "./CustomCursor";
 
 import Navbar from "./components/Navbar/Navbar";
+import Building from "./components/Pages/Building/Building";
 
 function App() {
   return (
     <Switch>
       <>
-      <CustomCursor />
+        <CustomCursor />
         <Navbar />
         <Route exact path="/" component={Home} />
         <Route exact path="/gigi-hadid" component={GigiHadid} />
         <Route exact path="/ecommerce" component={DjangoEcommerce} />
+        <Route exact path="/building" component={Building} />
       </>
     </Switch>
   );

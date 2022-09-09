@@ -147,7 +147,7 @@ const Navbar = () => {
     {
       id: "03",
       title: "Building 👨‍💻",
-      path: "/",
+      path: "building",
       video: "gigi-hadid.mp4",
     },
   ];

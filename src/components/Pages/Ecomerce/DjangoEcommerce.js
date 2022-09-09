@@ -40,8 +40,8 @@ const DjangoEcommerce = () => {
         <Title/>
         <HeroUi image={image3} design={true} />
         <HeroUi image={image4} />
-        <ViewSite location="Github" />
-        <ViewSite location="Live project" />
+        <ViewSite location="Github" exLink='https://github.com/mohammedfarisofficial/Expense-Tracker-RN' />
+        <ViewSite location="Live project" exLink="https://github.com/mohammedfarisofficial/Expense-Tracker-RN" />
       </div>
     </div>
   );
